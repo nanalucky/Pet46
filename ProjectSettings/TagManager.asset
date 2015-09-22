@@ -4,6 +4,13 @@
 TagManager:
   tags:
   - dog
+  - Ball
+  - BallPlay
+  - EnterInteract
+  - Interact
+  - Mouth
+  - RobotScript
+  - Record
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
