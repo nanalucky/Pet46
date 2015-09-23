@@ -4219,7 +4219,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 0
   m_ShadowSamples: 8
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -7132,6 +7132,11 @@ SkinnedMeshRenderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: f950203f76e7f95459adff1f93090525, type: 2}
+  - {fileID: 2100000, guid: f950203f76e7f95459adff1f93090525, type: 2}
+  - {fileID: 2100000, guid: f950203f76e7f95459adff1f93090525, type: 2}
+  - {fileID: 2100000, guid: f950203f76e7f95459adff1f93090525, type: 2}
+  - {fileID: 2100000, guid: f950203f76e7f95459adff1f93090525, type: 2}
+  - {fileID: 2100000, guid: f950203f76e7f95459adff1f93090525, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -7183,7 +7188,7 @@ SkinnedMeshRenderer:
   - {fileID: 783065194}
   - {fileID: 1959803372}
   - {fileID: 218625753}
-  - {fileID: 1566764824}
+  - {fileID: 1366171273}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 922195242}
   m_AABB:
@@ -7425,7 +7430,6 @@ SkinnedMeshRenderer:
   - {fileID: 57018036}
   - {fileID: 218625753}
   - {fileID: 540398544}
-  - {fileID: 1566764824}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 922195242}
   m_AABB:
@@ -7657,7 +7661,6 @@ SkinnedMeshRenderer:
   - {fileID: 1011483897}
   - {fileID: 388989979}
   - {fileID: 540398544}
-  - {fileID: 1566764824}
   - {fileID: 2109774976}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 61011657}
@@ -14332,6 +14335,33 @@ Transform:
   - {fileID: 1258964787}
   m_Father: {fileID: 492702439}
   m_RootOrder: 0
+--- !u!1 &1366171272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100120, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
+  m_PrefabInternal: {fileID: 662558430}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1366171273}
+  m_Layer: 0
+  m_Name: Bone11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1366171273
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400120, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
+  m_PrefabInternal: {fileID: 662558430}
+  m_GameObject: {fileID: 1366171272}
+  m_LocalRotation: {x: .482341021, y: -.517055929, z: -.332082361, w: .624276876}
+  m_LocalPosition: {x: -.0563481525, y: .0481165685, z: -.037139751}
+  m_LocalScale: {x: .999999821, y: 1, z: 1.00000012}
+  m_Children: []
+  m_Father: {fileID: 1822617578}
+  m_RootOrder: 5
 --- !u!1 &1374515204
 GameObject:
   m_ObjectHideFlags: 0
@@ -15657,33 +15687,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1562990095}
---- !u!1 &1566764823
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100086, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
-  m_PrefabInternal: {fileID: 662558430}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1566764824}
-  m_Layer: 8
-  m_Name: Bone11_
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1566764824
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400086, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
-  m_PrefabInternal: {fileID: 662558430}
-  m_GameObject: {fileID: 1566764823}
-  m_LocalRotation: {x: .482340872, y: -.517056227, z: -.332082301, w: .624276757}
-  m_LocalPosition: {x: -.0563482642, y: .0481165498, z: -.0371382125}
-  m_LocalScale: {x: 1.00000012, y: 1.00000024, z: 1.00000024}
-  m_Children: []
-  m_Father: {fileID: 1822617578}
-  m_RootOrder: 5
 --- !u!1001 &1581867644
 Prefab:
   m_ObjectHideFlags: 0
@@ -16319,7 +16322,7 @@ MonoBehaviour:
       lastSolvedLocalRotation: {x: 0, y: 0, z: 0, w: 0}
       length: 0
       axis: {x: -.945637882, y: -.325222164, z: 2.03733961e-07}
-    - transform: {fileID: 1566764824}
+    - transform: {fileID: 0}
       weight: 0
       solverPosition: {x: 0, y: 0, z: 0}
       defaultLocalPosition: {x: 0, y: 0, z: 0}
@@ -18314,7 +18317,7 @@ Transform:
   - {fileID: 57018036}
   - {fileID: 540398544}
   - {fileID: 218625753}
-  - {fileID: 1566764824}
+  - {fileID: 1366171273}
   - {fileID: 1500912407}
   - {fileID: 783065194}
   - {fileID: 1959803372}
