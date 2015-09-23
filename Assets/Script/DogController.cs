@@ -23,8 +23,8 @@ public class DogController : MonoBehaviour {
 	void Start () {
 		eye1Rotation = GameObject.Find ("Bone10").transform.rotation;
 		eye1Position = GameObject.Find ("Bone10").transform.localPosition;
-		eye2Rotation = GameObject.Find ("Bone11_").transform.rotation;
-		eye2Position = GameObject.Find ("Bone11_").transform.localPosition;
+		eye2Rotation = GameObject.Find ("Bone11").transform.rotation;
+		eye2Position = GameObject.Find ("Bone11").transform.localPosition;
 	}
 
 	public void ResetLookatIK()
