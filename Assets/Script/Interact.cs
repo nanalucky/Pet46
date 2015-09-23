@@ -22,6 +22,12 @@ public class Interact : MonoBehaviour {
 		GameObject goTail = Instantiate (Resources.Load ("Prefabs/GraspTail")) as GameObject;
 		goTail.transform.parent = gameObject.transform;
 
+		GameObject goLeftEar = Instantiate (Resources.Load ("Prefabs/GraspLeftEar")) as GameObject;
+		goLeftEar.transform.parent = gameObject.transform;
+
+		GameObject goRightEar = Instantiate (Resources.Load ("Prefabs/GraspRightEar")) as GameObject;
+		goRightEar.transform.parent = gameObject.transform;
+
 		GameObject goLookCamera = Instantiate (Resources.Load ("Prefabs/LookCamera")) as GameObject;
 		goLookCamera.transform.parent = gameObject.transform;
 
