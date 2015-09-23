@@ -63,6 +63,7 @@ ModelImporter:
     100114: rz
     100116: sz
     100118: wb
+    100120: Bone11
     400000: bd
     400002: Bip01
     400004: Bip01 Footsteps
@@ -123,6 +124,7 @@ ModelImporter:
     400114: rz
     400116: sz
     400118: wb
+    400120: Bone11
     4300000: fbd
     4300002: sz
     4300004: hd
