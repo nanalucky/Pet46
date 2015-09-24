@@ -43,6 +43,7 @@ MonoBehaviour:
   partName: rear
   boneNames:
   - Bone08
+  - Bone20
   - Bone09
   rootName: Bip01
   touchTime: 1

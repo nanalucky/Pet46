@@ -43,6 +43,7 @@ MonoBehaviour:
   partName: lear
   boneNames:
   - Bone06
+  - Bone19
   - Bone07
   rootName: Bip01
   touchTime: 1
