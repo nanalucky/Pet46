@@ -24,7 +24,7 @@ Material:
         first:
           name: _NoiseTex
         second:
-          m_Texture: {fileID: 2800000, guid: 405d544f6f079884f986f6f9812f5a03, type: 3}
+          m_Texture: {fileID: 2800000, guid: d655940120b0a7746b7de29a8c0ed630, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -35,7 +35,7 @@ Material:
       data:
         first:
           name: _FurLength
-        second: .00999999978
+        second: .00499999989
       data:
         first:
           name: _EdgeFade

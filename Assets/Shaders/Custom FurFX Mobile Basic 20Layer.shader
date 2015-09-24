@@ -5,7 +5,7 @@ Shader "Custom/FurFX Basic 20 Layer"
 		_Color ("Color (RGB)", Color) = (1,1,1,1)
 	  	_SpecColor ("Specular Material Color (RGB)", Color) = (0,0,0,0) 
 	  	_Shininess ("Shininess", Range (0.01, 10)) = 8		
-		_FurLength ("Fur Length", Range (.0002, 0.01)) = .01
+		_FurLength ("Fur Length", Range (.0002, 0.01)) = .005
 		_MainTex ("Base (RGB) Mask(A)", 2D) = "white" { }
 		_NoiseTex ("Noise (RGB)", 2D) = "white" { }
 		_EdgeFade ("Edge Fade", Range(0,1)) = 0.15
