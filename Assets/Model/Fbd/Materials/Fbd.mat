@@ -24,38 +24,38 @@ Material:
         first:
           name: _NoiseTex
         second:
-          m_Texture: {fileID: 2800000, guid: d655940120b0a7746b7de29a8c0ed630, type: 3}
+          m_Texture: {fileID: 2800000, guid: 671a243e82750c64a9e51b6be0639720, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _Shininess
-        second: 8
+        second: 4.77999687
       data:
         first:
           name: _FurLength
-        second: .00499999989
+        second: .00482500019
       data:
         first:
           name: _EdgeFade
-        second: .150000006
+        second: .285714298
       data:
         first:
           name: _HairHardness
-        second: 1
+        second: .614285707
       data:
         first:
           name: _HairThinness
-        second: 2
+        second: 8.39446449
       data:
         first:
           name: _HairShading
-        second: .25
+        second: .089285709
       data:
         first:
           name: _SkinAlpha
-        second: .5
+        second: .428571433
     m_Colors:
       data:
         first:
