@@ -50,10 +50,25 @@ public class BallDogCamera : MonoBehaviour {
 			euler.x = Mathf.MoveTowardsAngle(mainCamera.transform.rotation.eulerAngles.x, eulerX, speedEulerX * Time.deltaTime);
 			distance = cameraHeight / Mathf.Sin(Mathf.Deg2Rad * euler.x);
 		}
+
+		// check collision
+		RaycastHit hit;
+		Vector3 direction1 = Quaternion.Euler(euler) * (new Vector3(0,0,-1));
+		if (Physics.Raycast(go.transform.position, direction1, out hit, distance))
+		{
+			inMove = true;
+			distance = hit.distance;
+			float eulerX = Mathf.Rad2Deg * Mathf.Asin(cameraHeight / distance);
+			euler.x = eulerX;
+			//euler.x = Mathf.MoveTowardsAngle(mainCamera.transform.rotation.eulerAngles.x, eulerX, speedEulerX * Time.deltaTime);
+			distance = cameraHeight / Mathf.Sin(Mathf.Deg2Rad * euler.x);
+		}
 		
 		if (inMove) {
 			mainCamera.transform.rotation = Quaternion.Euler(euler);
 			mainCamera.transform.position = go.transform.position + mainCamera.transform.rotation * (new Vector3(0, 0, -distance));
 		}
+
+
 	}
 }
