@@ -84,6 +84,10 @@ public class Touch : MonoBehaviour {
 				{
 					state = State.Enjoy;
 					goDog.GetComponent<Animator>().Play (animationName);
+					if(string.Compare(animationName, "TouchHead") == 0)
+					{
+						goDog.GetComponent<Animator>().Play("TongueOut", 2);
+					}
 				}
 			}
 			else
@@ -109,6 +113,10 @@ public class Touch : MonoBehaviour {
 				{
 					state = State.None;
 					goDog.GetComponent<Animator>().Play("Stand");
+					if(string.Compare(animationName, "TouchHead") == 0)
+					{
+						goDog.GetComponent<Animator>().Play("TongueIn", 2);
+					}
 				}
 			}
 			break;

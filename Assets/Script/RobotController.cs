@@ -20,6 +20,7 @@ public class RobotController : MonoBehaviour {
 	public class RobotAISleep : RobotAI
 	{
 		private float timeEnd;
+		private bool eyeClose = false;
 
 		public override void Start(RobotController ctrl)
 		{
@@ -27,6 +28,15 @@ public class RobotController : MonoBehaviour {
 			timeEnd = Time.time + Random.Range (2.0f, 10.0f);
 
 			controller.go.GetComponent<Animator> ().Play ("StandToSleep");
+		}
+
+		public override void Update()
+		{
+			var animator = controller.go.GetComponent<Animator> ();
+			if (!eyeClose && animator.GetCurrentAnimatorStateInfo (0).IsName ("Sleep")) {
+				eyeClose = true;
+				animator.Play("EyeClose", 1);
+			}
 		}
 
 		public override bool IsFinished()
@@ -82,6 +92,7 @@ public class RobotController : MonoBehaviour {
 		{
 			controller = ctrl;			
 			controller.go.GetComponent<Animator> ().Play ("Wake");
+			controller.go.GetComponent<Animator> ().Play ("EyeOpen", 1);
 		}
 		
 		public override bool IsFinished()
