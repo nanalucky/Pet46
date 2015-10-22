@@ -20,6 +20,16 @@ public class UIController : MonoBehaviour {
 		GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().ToBall ();
 	}
 
+	public void OnClickRecord()
+	{
+		//GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().ToBall ();
+	}
+
+	public void OnClickPlay()
+	{
+		
+	}
+
 	public void OnClickSitDownPlay()
 	{
 		GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ().PlayProfile (Record.WORD_SITDOWN);
