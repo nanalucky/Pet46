@@ -2346,7 +2346,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 130423207}
   m_OnClick:
     m_PersistentCalls:
@@ -5549,16 +5549,19 @@ MonoBehaviour:
   runSpeed: 1.79999995
   rushSpeed: 1.5
   record: {fileID: 529449628}
+  btnRecord: {fileID: 130423206}
+  btnPlay: {fileID: 1586941724}
   btnRecords:
   - {fileID: 1323312398}
-  - {fileID: 1771307944}
-  - {fileID: 2056535480}
   - {fileID: 1112717570}
   - {fileID: 1435562657}
-  - {fileID: 1037497138}
-  - {fileID: 1481353426}
   - {fileID: 458554840}
   - {fileID: 864286547}
+  btnPlays:
+  - {fileID: 1771307944}
+  - {fileID: 2056535480}
+  - {fileID: 1037497138}
+  - {fileID: 1481353426}
   - {fileID: 1978880847}
 --- !u!114 &442346075
 MonoBehaviour:
@@ -17459,7 +17462,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1586941725}
   m_OnClick:
     m_PersistentCalls:

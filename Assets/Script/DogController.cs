@@ -12,7 +12,10 @@ public class DogController : MonoBehaviour {
 	public float rushSpeed = 1.5f;
 
 	public GameObject record;
+	public Button btnRecord;
+	public Button btnPlay;
 	public Button[] btnRecords;
+	public Button[] btnPlays;
 
 	private Quaternion eye1Rotation;
 	private Vector3 eye1Position;
@@ -40,8 +43,18 @@ public class DogController : MonoBehaviour {
 	{
 		Destroy(GameObject.FindGameObjectWithTag("RobotScript"));
 
+
 		Destroy(GameObject.FindGameObjectWithTag("EnterInteract"));
 		Destroy(GameObject.FindGameObjectWithTag("Interact"));
+		btnRecord.interactable = false;
+		btnPlay.interactable = false;
+		foreach (Button btn in btnRecords) {
+			btn.gameObject.SetActive(false);
+		}		
+		foreach (Button btn in btnPlays) {
+			btn.gameObject.SetActive(false);
+		}
+
 
 		Destroy(GameObject.FindGameObjectWithTag("Ball"));
 		Destroy (GameObject.FindGameObjectWithTag ("Mouth").GetComponent<BallCollideMouth> ());

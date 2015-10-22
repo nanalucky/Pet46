@@ -345,6 +345,8 @@ public class Record : MonoBehaviour
 	{
 		if (btn == null)
 			return;
+		if (btn.interactable == false)
+			return;
 
 		RectTransform rectTransform = (btn.transform) as RectTransform;
 		bool overButton = RectTransformUtility.RectangleContainsScreenPoint(rectTransform, new Vector2(Input.mousePosition.x, Input.mousePosition.y), null);

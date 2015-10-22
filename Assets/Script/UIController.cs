@@ -22,12 +22,24 @@ public class UIController : MonoBehaviour {
 
 	public void OnClickRecord()
 	{
-		//GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().ToBall ();
+		DogController dogController = GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>();
+		foreach (Button btn in dogController.btnRecords) {
+			btn.gameObject.SetActive (true);
+		}
+		foreach (Button btn in dogController.btnPlays) {
+			btn.gameObject.SetActive (false);
+		}
 	}
 
 	public void OnClickPlay()
 	{
-		
+		DogController dogController = GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>();
+		foreach (Button btn in dogController.btnRecords) {
+			btn.gameObject.SetActive (false);
+		}
+		foreach (Button btn in dogController.btnPlays) {
+			btn.gameObject.SetActive (true);
+		}
 	}
 
 	public void OnClickSitDownPlay()

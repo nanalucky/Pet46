@@ -35,9 +35,8 @@ public class Interact : MonoBehaviour {
 
 		DogController dogController = GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>();
 		dogController.record.SetActive(true);
-		foreach (Button btn in dogController.btnRecords) {
-			btn.gameObject.SetActive(true);
-		}
+		dogController.btnRecord.interactable = true;
+		dogController.btnPlay.interactable = true;
 	}
 	
 	// Update is called once per frame
@@ -49,9 +48,14 @@ public class Interact : MonoBehaviour {
 		DogController dogController = GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ();
 		if (dogController != null) {
 			dogController.record.SetActive(false);
+			dogController.btnRecord.interactable = false;
+			dogController.btnPlay.interactable = false;
 			foreach (Button btn in dogController.btnRecords) {
 				btn.gameObject.SetActive(false);
 			}		
+			foreach (Button btn in dogController.btnPlays) {
+				btn.gameObject.SetActive(false);
+			}
 		}
 	}
 

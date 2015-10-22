@@ -15,12 +15,15 @@ public class ButtonChangeImage : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (!btn.interactable)
+			return;
+
 		RectTransform rectTransform = (btn.transform) as RectTransform;
 		bool overButton = RectTransformUtility.RectangleContainsScreenPoint(rectTransform, new Vector2(Input.mousePosition.x, Input.mousePosition.y), null);
 		if (Input.GetMouseButton (0) && overButton) {
 			btn.image.sprite = pressed;
 		} else {
-			btn.image.sprite = normal;				
+			btn.image.sprite = normal;
 		}
 	}
 }
