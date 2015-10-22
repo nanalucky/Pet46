@@ -11076,6 +11076,10 @@ Prefab:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100120, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
   m_RootGameObject: {fileID: 442346072}
