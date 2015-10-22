@@ -63,12 +63,13 @@ public class BallDogCamera : MonoBehaviour {
 			//euler.x = Mathf.MoveTowardsAngle(mainCamera.transform.rotation.eulerAngles.x, eulerX, speedEulerX * Time.deltaTime);
 			distance = cameraHeight / Mathf.Sin(Mathf.Deg2Rad * euler.x);
 		}
-		
+
 		if (inMove) {
-			mainCamera.transform.rotation = Quaternion.Euler(euler);
-			mainCamera.transform.position = go.transform.position + mainCamera.transform.rotation * (new Vector3(0, 0, -distance));
+			if(euler.IsValid())
+			{
+				mainCamera.transform.rotation = Quaternion.Euler(euler);
+				mainCamera.transform.position = go.transform.position + mainCamera.transform.rotation * (new Vector3(0, 0, -distance));
+			}
 		}
-
-
 	}
 }
