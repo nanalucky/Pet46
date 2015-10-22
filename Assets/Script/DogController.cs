@@ -17,26 +17,29 @@ public class DogController : MonoBehaviour {
 	public Button[] btnRecords;
 	public Button[] btnPlays;
 
-	private Quaternion eye1Rotation;
-	private Vector3 eye1Position;
-	private Quaternion eye2Rotation;
-	private Vector3 eye2Position;
-
 	// Use this for initialization
 	void Start () {
-		eye1Rotation = GameObject.Find ("Bone10").transform.rotation;
-		eye1Position = GameObject.Find ("Bone10").transform.localPosition;
-		eye2Rotation = GameObject.Find ("Bone11").transform.rotation;
-		eye2Position = GameObject.Find ("Bone11").transform.localPosition;
 	}
 
 	public void ResetLookatIK()
 	{
 		GameObject.FindGameObjectWithTag ("dog").GetComponent<LookAtIK> ().Disable();
-		//GameObject.Find ("Bone10").transform.rotation = eye1Rotation;
-		//GameObject.Find ("Bone10").transform.localPosition = eye1Position;
-		//GameObject.Find ("Bone11_").transform.rotation = eye2Rotation;
-		//GameObject.Find ("Bone11_").transform.localPosition = eye2Position;
+		StartCoroutine(PlayAnimInterval(2, 0.5f));
+	}
+
+	IEnumerator PlayAnimInterval(int n, float time)
+	{
+		while (n > 0)
+		{
+			var anim = GameObject.FindGameObjectWithTag ("dog").GetComponent<Animator> ();
+			if(anim.GetCurrentAnimatorStateInfo(1).IsName("Blink")){
+				yield return new WaitForSeconds(0);
+			} else {
+				anim.Play ("Blink", 1);
+				--n;
+				yield return new WaitForSeconds(time);
+			}
+		}
 	}
 
 	void ClearAll()
