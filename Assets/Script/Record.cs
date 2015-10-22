@@ -345,7 +345,7 @@ public class Record : MonoBehaviour
 	{
 		if (btn == null)
 			return;
-		if (btn.interactable == false)
+		if (!btn.IsActive())
 			return;
 
 		RectTransform rectTransform = (btn.transform) as RectTransform;
