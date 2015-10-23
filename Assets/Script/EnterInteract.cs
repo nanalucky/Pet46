@@ -73,8 +73,10 @@ public class EnterInteract : MonoBehaviour {
 				curDistance = Mathf.SmoothDamp(curDistance, dstDistance, ref velDistance, controller.distanceSmooth);
 
 				Vector3 euler = mainCamera.transform.rotation.eulerAngles;
-				euler.x = Mathf.SmoothDampAngle(euler.x, dstEulerX, ref velX, controller.eulerXSmooth);
-				euler.y = Mathf.SmoothDampAngle(euler.y, dstEulerY, ref velY, controller.eulerYSmooth);
+				//euler.x = Mathf.SmoothDampAngle(euler.x, dstEulerX, ref velX, controller.eulerXSmooth);
+				//euler.y = Mathf.SmoothDampAngle(euler.y, dstEulerY, ref velY, 0.1f/*controller.eulerYSmooth*/);
+				euler.x = dstEulerX;
+				euler.y = dstEulerY;
 
 				mainCamera.transform.rotation = Quaternion.Euler(euler);
 				mainCamera.transform.position = curLookat + mainCamera.transform.rotation * (new Vector3(0, 0, -curDistance));
@@ -262,7 +264,9 @@ public class EnterInteract : MonoBehaviour {
 		None,
 	}
 
-	public Vector3 lookat = new Vector3 (0, 0, 3.5f);
+	[HideInInspector]
+	public Vector3 lookat;
+
 	public float lookatSmooth = 0.5f;
 	public float distance = 1.0f;
 	public float distanceSmooth = 0.5f;
@@ -278,6 +282,9 @@ public class EnterInteract : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		// choose the farest lookat
+		lookat = GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().ChooseLookat ();
+
 		aiMoveCamera = new AIMoveCamera ();
 		aiMoveCamera.Start (this);
 		lastAI = new AITurn ();

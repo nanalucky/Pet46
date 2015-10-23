@@ -11,8 +11,7 @@ public class ThrowBall : MonoBehaviour {
 	}
 
 	public State state = State.None;
-	public Vector3 forceOrient = new Vector3(0, 1, 1);
-	public float forceMultiplier = 0.05f;
+	public float forceMultiplier = 50.0f;
 	public float forceThreshold = 0;
 
 	private GameObject go;
@@ -20,6 +19,7 @@ public class ThrowBall : MonoBehaviour {
 	private Rigidbody rb;
 	private Vector3 startPosition;
 	private Vector3 lastPosition;
+	private float screenz;
 
 	private GameObject goDog;
 	private LookAtIK lookatIK;
@@ -38,6 +38,7 @@ public class ThrowBall : MonoBehaviour {
 			co = go.GetComponent<SphereCollider> ();
 			rb = go.GetComponent<Rigidbody> ();
 			startPosition = go.transform.position;
+			screenz = Camera.main.WorldToScreenPoint(go.transform.position).z;
 
 			goDog = GameObject.FindGameObjectWithTag("dog");
 			lookatIK = goDog.GetComponent<LookAtIK>();
@@ -56,29 +57,30 @@ public class ThrowBall : MonoBehaviour {
 			if(ret)
 			{
 				state = State.Grasp;
-				go.transform.position = PetHelper.ProjectPointLine(go.transform.position, ray.GetPoint(0), ray.GetPoint(100.0f));
-				lastPosition = Input.mousePosition;
+				go.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenz));
+				lastPosition = go.transform.position;
 			}
 			break;
 		case State.Grasp:
 			if(Input.GetMouseButton(0))
 			{
-				go.transform.position = PetHelper.ProjectPointLine(go.transform.position, ray.GetPoint(0), ray.GetPoint(100.0f));
-				lastPosition = Input.mousePosition;
+				go.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenz));
+				lastPosition = go.transform.position;
 			}
 			else
 			{
-				Vector3 curPosition = Input.mousePosition;
-				Vector3 delta = curPosition - lastPosition;
-				float forceLen = delta.magnitude / Time.deltaTime * forceMultiplier;
-				if(forceLen < forceThreshold)
+				Vector3 curPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenz));
+				Vector3 force = curPosition - lastPosition;
+				force.z = force.magnitude;
+				force /= Time.deltaTime;
+				force *= forceMultiplier;
+				if(force.magnitude < forceThreshold)
 				{
 					state = State.None;
 					go.transform.position = startPosition;
 				}
 				else
 				{
-					Vector3 force = (delta.x * (Quaternion.Inverse(Camera.main.transform.rotation) * (new Vector3(1, 0, 0))) + delta.y * (Quaternion.Inverse(Camera.main.transform.rotation) * forceOrient)).normalized * forceLen;
 					rb.isKinematic = false;
 					rb.AddForce(force);
 					this.gameObject.GetComponent<BallCamera>().enabled = true;

@@ -47,7 +47,7 @@ public class BallDogCamera : MonoBehaviour {
 			inMove = true;
 			distance = minDistance;
 			float eulerX = Mathf.Rad2Deg * Mathf.Asin(cameraHeight / distance);
-			euler.x = Mathf.MoveTowardsAngle(mainCamera.transform.rotation.eulerAngles.x, eulerX, speedEulerX * Time.deltaTime);
+			//euler.x = Mathf.MoveTowardsAngle(mainCamera.transform.rotation.eulerAngles.x, eulerX, speedEulerX * Time.deltaTime);
 			distance = cameraHeight / Mathf.Sin(Mathf.Deg2Rad * euler.x);
 		}
 

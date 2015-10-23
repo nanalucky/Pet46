@@ -17,6 +17,8 @@ public class DogController : MonoBehaviour {
 	public Button[] btnRecords;
 	public Button[] btnPlays;
 
+	public Vector3[] lookats = new Vector3[]{new Vector3(7f,0f,5f),new Vector3(5f,0f,6f),new Vector3(3.5f,0f,4f),new Vector3(5f,0f,4f)};
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -42,6 +44,30 @@ public class DogController : MonoBehaviour {
 		}
 	}
 
+	public Vector3 ChooseLookat()
+	{
+		var goDog = GameObject.FindGameObjectWithTag ("dog");
+		Vector3 nearest = lookats [0];
+		float distance = (nearest - goDog.transform.position).magnitude;
+		foreach (Vector3 pt in lookats) {
+			float dis = (pt - goDog.transform.position).magnitude;
+			if(dis > distance)
+			{
+				distance = dis;
+				nearest = pt;
+			}
+		}
+		ArrayList validLookats = new ArrayList();
+		foreach (Vector3 pt in lookats) {
+			if(pt != nearest)
+			{
+				validLookats.Add(pt);
+			}
+		}
+
+		return (Vector3)(validLookats[(int)(Random.value * validLookats.Count)]);
+	}
+
 	void ClearAll()
 	{
 		Destroy(GameObject.FindGameObjectWithTag("RobotScript"));
@@ -59,6 +85,7 @@ public class DogController : MonoBehaviour {
 		}
 
 
+		Destroy(GameObject.FindGameObjectWithTag("EnterBall"));
 		Destroy(GameObject.FindGameObjectWithTag("Ball"));
 		Destroy (GameObject.FindGameObjectWithTag ("Mouth").GetComponent<BallCollideMouth> ());
 		GameObject.FindGameObjectWithTag ("dog").GetComponent<LookAtIK> ().enabled = false;
@@ -79,15 +106,6 @@ public class DogController : MonoBehaviour {
 	public void ToBall()
 	{
 		ClearAll ();
-
-		GameObject go = Instantiate(Resources.Load("Prefabs/Ball")) as GameObject;
-		go.GetComponent<Rigidbody>().isKinematic = true;
-		go.transform.position = Camera.main.transform.position + Camera.main.transform.rotation * (new Vector3(0, 0, 0.4f + 0.08f));
-
-		GameObject goPlay = Instantiate(Resources.Load("Prefabs/BallPlay")) as GameObject;
-		goPlay.transform.parent = go.transform;
-
+		Instantiate(Resources.Load("Prefabs/EnterBall"));
 	}
-	
-
 }

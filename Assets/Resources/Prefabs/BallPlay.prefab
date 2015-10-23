@@ -97,8 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
-  forceOrient: {x: 0, y: 1, z: 1}
-  forceMultiplier: .0500000007
+  forceMultiplier: 50
   forceThreshold: 0
 --- !u!1001 &100100000
 Prefab:
