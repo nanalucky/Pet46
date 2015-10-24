@@ -85,8 +85,6 @@ public class BallDogController : MonoBehaviour {
 				state = State.Rush;
 				goDog.GetComponent<Animator>().Play ("Rush");
 				goDog.GetComponent<DogController>().ResetLookatIK();
-
-				goMouth.AddComponent<BallCollideMouth>();
 			}
 			break;
 		case State.Rush:
@@ -98,7 +96,7 @@ public class BallDogController : MonoBehaviour {
 			direction.y = 0.0f;
 			distance = direction.magnitude;
 			direction.Normalize();
-			if(goMouth.GetComponent<BallCollideMouth>() == null)
+			if(distance <= mouthDistance)
 			{
 				if(Random.value <= rushSuccessRate)
 				{
