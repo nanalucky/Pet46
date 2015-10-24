@@ -28,6 +28,7 @@ public class ThrowBall : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Time.fixedDeltaTime = 0.01f;
 	}
 	
 	// Update is called once per frame
