@@ -35,7 +35,7 @@ public class RobotController : MonoBehaviour {
 			var animator = controller.go.GetComponent<Animator> ();
 			if (!eyeClose && animator.GetCurrentAnimatorStateInfo (0).IsName ("Sleep")) {
 				eyeClose = true;
-				animator.Play("EyeClose", 1);
+				animator.Play("EyeClose", 2);
 			}
 		}
 
@@ -92,7 +92,7 @@ public class RobotController : MonoBehaviour {
 		{
 			controller = ctrl;			
 			controller.go.GetComponent<Animator> ().Play ("Wake");
-			controller.go.GetComponent<Animator> ().Play ("EyeOpen", 1);
+			controller.go.GetComponent<Animator> ().Play ("EyeOpen", 2);
 		}
 		
 		public override bool IsFinished()

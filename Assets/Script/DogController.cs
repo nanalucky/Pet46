@@ -37,7 +37,7 @@ public class DogController : MonoBehaviour {
 			if(anim.GetCurrentAnimatorStateInfo(1).IsName("Blink")){
 				yield return new WaitForSeconds(0);
 			} else {
-				anim.Play ("Blink", 1);
+				anim.Play ("Blink", 2);
 				--n;
 				yield return new WaitForSeconds(time);
 			}
