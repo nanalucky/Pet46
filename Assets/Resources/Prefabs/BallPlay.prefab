@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
-  forceMultiplier: 50
+  forceMultiplier: 100
   forceThreshold: 0
 --- !u!1001 &100100000
 Prefab:
