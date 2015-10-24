@@ -283,7 +283,7 @@ public class EnterInteract : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// choose the farest lookat
-		lookat = GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().ChooseLookat ();
+		lookat = GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().lookats [3];
 
 		aiMoveCamera = new AIMoveCamera ();
 		aiMoveCamera.Start (this);
