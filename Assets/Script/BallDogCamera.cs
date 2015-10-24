@@ -40,7 +40,7 @@ public class BallDogCamera : MonoBehaviour {
 			lastLookat = go.transform.position;
 			inMove = true;
 		}
-		
+
 		float distance = (lastLookat - mainCamera.transform.position).magnitude;
 		Vector3 euler = Quaternion.LookRotation((lastLookat - mainCamera.transform.position).normalized).eulerAngles;
 		if (distance < minDistance || distance > maxDistance) {
@@ -48,13 +48,14 @@ public class BallDogCamera : MonoBehaviour {
 			distance = minDistance;
 			float eulerX = Mathf.Rad2Deg * Mathf.Asin(cameraHeight / distance);
 			//euler.x = Mathf.MoveTowardsAngle(mainCamera.transform.rotation.eulerAngles.x, eulerX, speedEulerX * Time.deltaTime);
+			euler.x = eulerX;
 			distance = cameraHeight / Mathf.Sin(Mathf.Deg2Rad * euler.x);
 		}
 
 		// check collision
 		RaycastHit hit;
 		Vector3 direction1 = Quaternion.Euler(euler) * (new Vector3(0,0,-1));
-		if (Physics.Raycast(go.transform.position, direction1, out hit, distance))
+		if (Physics.Raycast(go.transform.position, direction1, out hit, distance, 8))
 		{
 			inMove = true;
 			distance = hit.distance;
