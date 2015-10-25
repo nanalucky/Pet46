@@ -11020,19 +11020,19 @@ Prefab:
     - target: {fileID: 13700002, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 97c7331ab0e5f384abc218051fcb1dbe, type: 2}
+      objectReference: {fileID: 2100000, guid: 272dd14b931731347b50ba830da48116, type: 2}
     - target: {fileID: 13700002, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 6406113b9acbd5f4ca5c288d77ca514d, type: 2}
+      objectReference: {fileID: 2100000, guid: 97c7331ab0e5f384abc218051fcb1dbe, type: 2}
     - target: {fileID: 13700002, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: eab50581976f9a9428cca5ac9bf9fb1c, type: 2}
+      objectReference: {fileID: 2100000, guid: 6406113b9acbd5f4ca5c288d77ca514d, type: 2}
     - target: {fileID: 13700002, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_Materials.Array.data[4]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d02fdceceac2a84ba6ab35cd7cc944f, type: 2}
+      objectReference: {fileID: 2100000, guid: eab50581976f9a9428cca5ac9bf9fb1c, type: 2}
     - target: {fileID: 13700002, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_Materials.Array.data[5]
       value: 
@@ -11088,7 +11088,7 @@ Prefab:
     - target: {fileID: 13700002, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_Materials.Array.data[6]
       value: 
-      objectReference: {fileID: 2100000, guid: 272dd14b931731347b50ba830da48116, type: 2}
+      objectReference: {fileID: 2100000, guid: 6406113b9acbd5f4ca5c288d77ca514d, type: 2}
     - target: {fileID: 13700002, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_Materials.Array.data[7]
       value: 
@@ -17324,12 +17324,12 @@ SkinnedMeshRenderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: f950203f76e7f95459adff1f93090525, type: 2}
+  - {fileID: 2100000, guid: 272dd14b931731347b50ba830da48116, type: 2}
   - {fileID: 2100000, guid: 97c7331ab0e5f384abc218051fcb1dbe, type: 2}
   - {fileID: 2100000, guid: 6406113b9acbd5f4ca5c288d77ca514d, type: 2}
   - {fileID: 2100000, guid: eab50581976f9a9428cca5ac9bf9fb1c, type: 2}
-  - {fileID: 2100000, guid: 2d02fdceceac2a84ba6ab35cd7cc944f, type: 2}
   - {fileID: 2100000, guid: e2569f391248d9d4d8b0f5f4e7c75f17, type: 2}
-  - {fileID: 2100000, guid: 272dd14b931731347b50ba830da48116, type: 2}
+  - {fileID: 2100000, guid: 6406113b9acbd5f4ca5c288d77ca514d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
