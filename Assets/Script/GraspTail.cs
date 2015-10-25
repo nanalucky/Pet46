@@ -17,6 +17,8 @@ public class GraspTail : MonoBehaviour {
 	public string[] boneNames;
 	public string rootName;
 	public float touchTime = 1.0f;
+	public int animatorLayer = 0;
+	public string animName;
 
 	private Camera mainCamera;
 	private GameObject go;
@@ -81,6 +83,10 @@ public class GraspTail : MonoBehaviour {
 			{
 				state = State.None;
 				ccdIK.solver.IKPositionWeight = 0.0f;
+				if(!string.IsNullOrEmpty(animName))
+				{
+					GameObject.FindGameObjectWithTag("dog").GetComponent<Animator>().Play(animName, animatorLayer);
+				}
 			}
 			else
 			{

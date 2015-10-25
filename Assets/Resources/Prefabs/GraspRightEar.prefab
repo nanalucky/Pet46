@@ -47,6 +47,8 @@ MonoBehaviour:
   - Bone09
   rootName: Bip01
   touchTime: 1
+  animatorLayer: 4
+  animName: ear
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

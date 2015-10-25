@@ -5606,14 +5606,14 @@ MonoBehaviour:
       defaultLocalPosition: {x: 0, y: 0, z: 0}
       lastSolvedLocalRotation: {x: 0, y: 0, z: 0, w: 0}
       length: 0
-      axis: {x: -.945637882, y: -.325222164, z: 2.03733961e-07}
+      axis: {x: -.945637941, y: -.325222105, z: 3.89466322e-07}
     - transform: {fileID: 2010111212}
       weight: 0
       solverPosition: {x: 0, y: 0, z: 0}
       defaultLocalPosition: {x: 0, y: 0, z: 0}
       lastSolvedLocalRotation: {x: 0, y: 0, z: 0, w: 0}
       length: 0
-      axis: {x: -.945638478, y: .325219989, z: -1.1787894e-07}
+      axis: {x: -.945638657, y: .325219899, z: -1.74750681e-07}
     bodyWeight: .5
     headWeight: .5
     eyesWeight: 1
