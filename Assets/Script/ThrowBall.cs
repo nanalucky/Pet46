@@ -72,7 +72,7 @@ public class ThrowBall : MonoBehaviour {
 			{
 				Vector3 curPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenz));
 				Vector3 force = curPosition - lastPosition;
-				force.z = force.magnitude;
+				force += Camera.main.transform.rotation * (new Vector3(0,0,force.magnitude));
 				force /= Time.deltaTime;
 				force *= forceMultiplier;
 				if(force.magnitude < forceThreshold)

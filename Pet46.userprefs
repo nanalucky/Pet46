@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Touch.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\GraspTail.cs">
     <Files>
       <File FileName="Assets\Script\DogController.cs" Line="22" Column="32" />
       <File FileName="Assets\Script\BallDogController.cs" Line="136" Column="34" />
       <File FileName="Assets\Script\LookCamera.cs" Line="22" Column="75" />
       <File FileName="Assets\Script\ThrowBall.cs" Line="46" Column="40" />
-      <File FileName="Assets\Script\Touch.cs" Line="85" Column="26" />
+      <File FileName="Assets\Script\Touch.cs" Line="69" Column="18" />
+      <File FileName="Assets\Script\GraspTail.cs" Line="88" Column="101" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
