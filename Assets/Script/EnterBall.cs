@@ -6,6 +6,7 @@ public class EnterBall : EnterInteract {
 	// Use this for initialization
 	void Start () {
 		GameObject goDog = GameObject.FindGameObjectWithTag("dog");
+		goDog.GetComponent<Animator> ().Play ("Stand");
 		Vector3 direction = Camera.main.transform.position - goDog.transform.position;
 		if (!Physics.Raycast (goDog.transform.position, direction.normalized, direction.magnitude)
 		    && (Camera.main.transform.position - goDog.transform.position).magnitude > 1.0f) {
