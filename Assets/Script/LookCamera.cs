@@ -10,7 +10,7 @@ public class LookCamera : MonoBehaviour {
 	void Start () {
 		GameObject goDog = GameObject.FindGameObjectWithTag ("dog");
 		lookatIK = goDog.GetComponent<LookAtIK> ();
-		lookatIK.enabled = true;
+		goDog.GetComponent<DogController> ().EnableLookatIK (true);
 	}
 	
 	// Update is called once per frame
@@ -19,6 +19,6 @@ public class LookCamera : MonoBehaviour {
 	}
 
 	void OnDestroy () {
-		GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().ResetLookatIK ();
+		GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().EnableLookatIK (false);
 	}
 }

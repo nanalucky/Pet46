@@ -43,7 +43,7 @@ public class ThrowBall : MonoBehaviour {
 
 			goDog = GameObject.FindGameObjectWithTag("dog");
 			lookatIK = goDog.GetComponent<LookAtIK>();
-			lookatIK.enabled = true;
+			goDog.GetComponent<DogController>().EnableLookatIK(true);
 		}
 
 		lookatIK.solver.IKPosition = go.transform.position;

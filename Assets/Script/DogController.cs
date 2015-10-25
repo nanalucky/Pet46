@@ -23,10 +23,22 @@ public class DogController : MonoBehaviour {
 	void Start () {
 	}
 
-	public void ResetLookatIK()
+	void Update(){
+		if (Input.GetKeyUp(KeyCode.A)) {
+			gameObject.GetComponent<Animator>().Play("Blink", 2);	
+		}
+	}
+
+	public void EnableLookatIK(bool enabled)
 	{
-		GameObject.FindGameObjectWithTag ("dog").GetComponent<LookAtIK> ().Disable();
-		StartCoroutine(PlayAnimInterval(2, 0.5f));
+		LookAtIK lookatik = GameObject.FindGameObjectWithTag ("dog").GetComponent<LookAtIK> ();
+		if (enabled) {
+			lookatik.enabled = true;
+			Debug.LogWarning(string.Format("lookatid enable:{0}", Time.time));
+		} else {
+			lookatik.Disable();
+			StartCoroutine(PlayAnimInterval(2, 0.5f));
+		}
 	}
 
 	IEnumerator PlayAnimInterval(int n, float time)
@@ -37,6 +49,7 @@ public class DogController : MonoBehaviour {
 			if(anim.GetCurrentAnimatorStateInfo(1).IsName("Blink")){
 				yield return new WaitForSeconds(0);
 			} else {
+				Debug.LogWarning(string.Format("Blink:{0}", Time.time));
 				anim.Play ("Blink", 2);
 				--n;
 				yield return new WaitForSeconds(time);
@@ -88,7 +101,7 @@ public class DogController : MonoBehaviour {
 		Destroy(GameObject.FindGameObjectWithTag("EnterBall"));
 		Destroy(GameObject.FindGameObjectWithTag("Ball"));
 		Destroy (GameObject.FindGameObjectWithTag ("Mouth").GetComponent<BallCollideMouth> ());
-		GameObject.FindGameObjectWithTag ("dog").GetComponent<LookAtIK> ().enabled = false;
+		EnableLookatIK (false);
 	}
 
 	public void ToRobot()

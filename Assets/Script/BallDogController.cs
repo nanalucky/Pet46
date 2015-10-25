@@ -34,7 +34,7 @@ public class BallDogController : MonoBehaviour {
 		lookatIK = goDog.GetComponent<LookAtIK> ();
 
 		state = State.Look;
-		lookatIK.enabled = true;
+		goDog.GetComponent<DogController> ().EnableLookatIK (true);
 		Vector3 bodyToMouth = goMouth.transform.position - goDog.transform.position;
 		bodyToMouth.y = 0.0f;
 		mouthDistance = bodyToMouth.magnitude; 
@@ -47,7 +47,7 @@ public class BallDogController : MonoBehaviour {
 			lookatIK.solver.IKPosition = goBall.transform.position;
 			if(goBall.transform.position.y < 0.05f)
 			{
-				goDog.GetComponent<DogController> ().ResetLookatIK ();
+				goDog.GetComponent<DogController> ().EnableLookatIK (false);
 				state = State.Chase;
 				goDog.GetComponent<Animator>().Play("Run");
 				velY = 0.0f;
@@ -84,7 +84,6 @@ public class BallDogController : MonoBehaviour {
 				goDog.transform.rotation = Quaternion.LookRotation(direction);
 				state = State.Rush;
 				goDog.GetComponent<Animator>().Play ("Rush");
-				goDog.GetComponent<DogController>().ResetLookatIK();
 			}
 			break;
 		case State.Rush:
@@ -143,6 +142,6 @@ public class BallDogController : MonoBehaviour {
 
 	void OnDestroy()
 	{
-		goDog.GetComponent<DogController> ().ResetLookatIK ();
+		goDog.GetComponent<DogController> ().EnableLookatIK (false);
 	}
 }
