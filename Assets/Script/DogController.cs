@@ -83,6 +83,8 @@ public class DogController : MonoBehaviour {
 
 	void ClearAll()
 	{
+		Time.fixedDeltaTime = 0.02f;
+
 		Destroy(GameObject.FindGameObjectWithTag("RobotScript"));
 
 
