@@ -41,7 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookat: {x: 0, y: 0, z: 3.5}
   lookatSmooth: .5
-  distance: 1.20000005
+  distance: 1
   distanceSmooth: .5
   eulerYSmooth: .5
   eulerX: 30
