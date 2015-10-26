@@ -83,6 +83,7 @@ public class Touch : MonoBehaviour {
 				if(Time.time - timeInTouch >= timeIntoEnjoy)
 				{
 					state = State.Enjoy;
+					goDog.GetComponent<Animator>().Play("EyeHalf", 2);
 					if(string.Compare(animationName, "TouchHead") == 0)
 					{
 						goDog.GetComponent<Animator>().Play ("TouchHead", 1);
@@ -116,6 +117,7 @@ public class Touch : MonoBehaviour {
 				if(Time.time - timeNotInTouch > timeOutEnjoy)
 				{
 					state = State.None;
+					goDog.GetComponent<Animator>().Play("EyeOpen", 2);
 					if(string.Compare(animationName, "TouchHead") == 0)
 					{
 						goDog.GetComponent<Animator>().Play("empty", 1);
