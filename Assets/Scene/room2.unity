@@ -10649,6 +10649,10 @@ Prefab:
       propertyPath: m_Materials.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13700002, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400102, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.4000001
@@ -16946,7 +16950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1518065116
 Light:
   m_ObjectHideFlags: 0
@@ -16962,7 +16966,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: 3
     m_Strength: .519999981
     m_Bias: 0
@@ -17330,6 +17334,7 @@ SkinnedMeshRenderer:
   - {fileID: 2100000, guid: eab50581976f9a9428cca5ac9bf9fb1c, type: 2}
   - {fileID: 2100000, guid: e2569f391248d9d4d8b0f5f4e7c75f17, type: 2}
   - {fileID: 2100000, guid: 6406113b9acbd5f4ca5c288d77ca514d, type: 2}
+  - {fileID: 2100000, guid: 2d02fdceceac2a84ba6ab35cd7cc944f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
