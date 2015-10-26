@@ -3393,10 +3393,10 @@ Light:
   m_Shadows:
     m_Type: 2
     m_Resolution: 3
-    m_Strength: .519999981
+    m_Strength: .389999986
     m_Bias: 0
-    m_Softness: 4
-    m_SoftnessFade: 1
+    m_Softness: 3.6099999
+    m_SoftnessFade: .100000001
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
@@ -17385,8 +17385,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 2146777260}
   m_AABB:
-    m_Center: {x: -.12958321, y: -.00784739852, z: 2.06008554e-05}
-    m_Extent: {x: .258395225, y: .218182117, z: .128178716}
+    m_Center: {x: -.131348237, y: -.00784739852, z: 2.06008554e-05}
+    m_Extent: {x: .260160267, y: .218182117, z: .128178716}
   m_DirtyAABB: 0
 --- !u!1 &1586941720
 GameObject:

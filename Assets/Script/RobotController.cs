@@ -105,12 +105,12 @@ public class RobotController : MonoBehaviour {
 		
 		public override RobotState GetNextState()
 		{
-			var states = new RobotState[]{RobotState.Walk, RobotState.Sniffer};
+			var states = new RobotState[]{RobotState.WalkWithNoShake, RobotState.WalkWithLargeShake};
 			return states [ (int)(Random.value * 10.0f) % states.Length ];
 		}
 	}
 
-	public class RobotAIWalk : RobotAI
+	public class RobotAIWalkWithNoShake : RobotAI
 	{
 		private Vector3 vecStart;
 		private Vector3 vecEnd;
@@ -133,7 +133,7 @@ public class RobotController : MonoBehaviour {
 			                      Random.Range (controller.go.GetComponent<DogController>().zoneMin.z, 
 			              						controller.go.GetComponent<DogController>().zoneMax.z));
 			timeStart = Time.time;
-			controller.go.GetComponent<Animator> ().Play ("Walk");
+			controller.go.GetComponent<Animator> ().Play ("WalkWithNoShake");
 
 			direction = (vecEnd - vecStart).normalized;
 			timeTotal = (vecEnd - vecStart).magnitude / controller.go.GetComponent<DogController>().walkSpeed;
@@ -162,6 +162,60 @@ public class RobotController : MonoBehaviour {
 			return states [ (int)(Random.value * 10.0f) % states.Length ];
 		}
 	}
+
+	public class RobotAIWalkWithLargeShake : RobotAI
+	{
+		private Vector3 vecStart;
+		private Vector3 vecEnd;
+		private float timeStart;
+		
+		private Vector3 direction;
+		private float timeTotal;
+		private float dstEulerY;
+		private float eulerSmooth = 0.2f;
+		private float velEulerY;
+		
+		public override void Start(RobotController ctrl)
+		{
+			controller = ctrl;
+			vecStart = controller.go.transform.position;
+			vecEnd = new Vector3 (Random.Range (controller.go.GetComponent<DogController>().zoneMin.x, 
+			                                    controller.go.GetComponent<DogController>().zoneMax.x), 
+			                      Random.Range (controller.go.GetComponent<DogController>().zoneMin.y, 
+			              controller.go.GetComponent<DogController>().zoneMax.y), 
+			                      Random.Range (controller.go.GetComponent<DogController>().zoneMin.z, 
+			              controller.go.GetComponent<DogController>().zoneMax.z));
+			timeStart = Time.time;
+			controller.go.GetComponent<Animator> ().Play ("WalkWithLargeShake");
+			
+			direction = (vecEnd - vecStart).normalized;
+			timeTotal = (vecEnd - vecStart).magnitude / controller.go.GetComponent<DogController>().walkSpeed;
+			dstEulerY = Quaternion.LookRotation (direction).eulerAngles.y;
+			velEulerY = 0.0f;
+		}
+		
+		public override void Update()
+		{
+			Vector3 curEuler = controller.go.transform.rotation.eulerAngles;
+			if (curEuler.y != dstEulerY) {
+				curEuler.y = Mathf.SmoothDampAngle(curEuler.y, dstEulerY, ref velEulerY, eulerSmooth);
+				controller.go.transform.rotation = Quaternion.Euler(curEuler);
+			}
+			controller.go.transform.position = vecStart + direction * controller.go.GetComponent<DogController>().walkSpeed * (Time.time - timeStart);
+		}
+		
+		public override bool IsFinished()
+		{
+			return Time.time > timeStart + timeTotal ? true : false;
+		}
+		
+		public override RobotState GetNextState()
+		{
+			var states = new RobotState[]{RobotState.WalkWithNoShake, RobotState.Run};
+			return states [ (int)(Random.value * 10.0f) % states.Length ];
+		}
+	}
+
 
 	public class RobotAIRun : RobotAI
 	{
@@ -211,7 +265,7 @@ public class RobotController : MonoBehaviour {
 		
 		public override RobotState GetNextState()
 		{
-			var states = new RobotState[]{RobotState.Walk, RobotState.Sniffer};
+			var states = new RobotState[]{RobotState.Run, RobotState.WalkWithLargeShake};
 			return states [ (int)(Random.value * 10.0f) % states.Length ];
 		}
 	}
@@ -220,7 +274,8 @@ public class RobotController : MonoBehaviour {
 	{ 
 		Sleep,
 		Wake,
-		Walk,
+		WalkWithNoShake,
+		WalkWithLargeShake,
 		Run,
 		Sniffer,
 	}
@@ -249,7 +304,7 @@ public class RobotController : MonoBehaviour {
 
 	void ChangeRobotAI()
 	{
-		RobotState state = RobotState.Walk;
+		RobotState state = RobotState.WalkWithNoShake;
 		if (lastAI != null)
 			state = lastAI.GetNextState ();
 
@@ -261,17 +316,20 @@ public class RobotController : MonoBehaviour {
 		case RobotState.Wake:
 			ai = new RobotAIWake();
 			break;
-		case RobotState.Walk:
-			ai = new RobotAIWalk();
+		case RobotState.WalkWithNoShake:
+			ai = new RobotAIWalkWithNoShake();
 			break;
+		case RobotState.WalkWithLargeShake:
+			ai = new RobotAIWalkWithLargeShake();
+		break;
 		case RobotState.Run:
 			ai = new RobotAIRun();
 			break;
 		case RobotState.Sniffer:
-			ai = new RobotAIWalk();
+			ai = new RobotAIWalkWithNoShake();
 			break;
 		default:
-			ai = new RobotAIWalk();
+			ai = new RobotAIWalkWithNoShake();
 			break;
 		}
 

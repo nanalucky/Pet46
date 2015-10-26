@@ -122,7 +122,7 @@ public class EnterInteract : MonoBehaviour {
 			else
 				dstEulerY = go.transform.rotation.eulerAngles.y;
 
-			go.GetComponent<Animator> ().Play ("Walk");
+			go.GetComponent<Animator> ().Play ("WalkWithLargeShake");
 		}
 
 		public override void Update()
