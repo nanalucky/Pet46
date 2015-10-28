@@ -43,7 +43,7 @@ public class Exercise : MonoBehaviour {
 	void OnDestroy() {
 		DogController dogController = GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ();
 		if (dogController != null) {
-			dogController.record.SetActive(false);
+			//dogController.record.SetActive(false);
 			foreach (Button btn in dogController.btnRecords) {
 				btn.gameObject.SetActive(false);
 			}		

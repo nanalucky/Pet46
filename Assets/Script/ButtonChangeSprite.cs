@@ -14,10 +14,12 @@ public class ButtonChangeSprite : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Record record = GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ();
-		if (record.HasProfile (word) != bSaved) {
-			gameObject.GetComponent<Button>().image.sprite = saved;
-			bSaved = !bSaved;
+		if (GameObject.FindGameObjectWithTag ("Record")) {
+			Record record = GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ();
+			if (record.HasProfile (word) != bSaved) {
+				gameObject.GetComponent<Button>().image.sprite = saved;
+				bSaved = !bSaved;
+			}
 		}
 	}
 }

@@ -14,8 +14,10 @@ public class DogController : MonoBehaviour {
 	public GameObject record;
 	public Button btnRecord;
 	public Button btnPlay;
+	public Button btnOrder;
 	public Button[] btnRecords;
 	public Button[] btnPlays;
+
 
 	private Animator animator;
 
@@ -165,9 +167,12 @@ public class DogController : MonoBehaviour {
 		// exercise
 		Destroy(GameObject.FindGameObjectWithTag("EnterExercise"));
 		Destroy(GameObject.FindGameObjectWithTag("Exercise"));
-		foreach (Button btn in btnRecords) {
-			btn.gameObject.SetActive(false);
-		}		
+		record.SetActive (false);
+
+		// order
+		Destroy(GameObject.FindGameObjectWithTag("EnterOrder"));
+		Destroy(GameObject.FindGameObjectWithTag("Order"));
+		record.SetActive (false);
 	}
 
 	public void ToRobot()
@@ -192,5 +197,11 @@ public class DogController : MonoBehaviour {
 	{
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterExercise"));
+	}
+
+	public void ToOrder()
+	{
+		ClearAll ();
+		Instantiate(Resources.Load("Prefabs/EnterOrder"));
 	}
 }
