@@ -12,6 +12,9 @@ TagManager:
   - RobotScript
   - Record
   - EnterBall
+  - EnterExercise
+  - Exercise
+  - Gesture
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

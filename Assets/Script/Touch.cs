@@ -84,6 +84,7 @@ public class Touch : MonoBehaviour {
 				{
 					state = State.Enjoy;
 					goDog.GetComponent<Animator>().Play("EyeHalf", 2);
+					goDog.GetComponent<Animator>().Play("EyeHalf", 5);
 					if(string.Compare(animationName, "TouchHead") == 0)
 					{
 						goDog.GetComponent<Animator>().Play ("TouchHead", 1);
@@ -118,6 +119,7 @@ public class Touch : MonoBehaviour {
 				{
 					state = State.None;
 					goDog.GetComponent<Animator>().Play("EyeOpen", 2);
+					goDog.GetComponent<Animator>().Play("EyeOpen", 5);
 					if(string.Compare(animationName, "TouchHead") == 0)
 					{
 						goDog.GetComponent<Animator>().Play("empty", 1);

@@ -31,32 +31,11 @@ public class Interact : MonoBehaviour {
 		GameObject goLookCamera = Instantiate (Resources.Load ("Prefabs/LookCamera")) as GameObject;
 		goLookCamera.transform.parent = gameObject.transform;
 
-		gameObject.AddComponent<Gesture> ();
-
-		DogController dogController = GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>();
-		dogController.record.SetActive(true);
-		dogController.btnRecord.interactable = true;
-		dogController.btnPlay.interactable = true;
+		GameObject goGesture = Instantiate (Resources.Load ("Prefabs/Gesture")) as GameObject;
+		goGesture.transform.parent = gameObject.transform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	}
-
-
-	void OnDestroy() {
-		DogController dogController = GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ();
-		if (dogController != null) {
-			dogController.record.SetActive(false);
-			dogController.btnRecord.interactable = false;
-			dogController.btnPlay.interactable = false;
-			foreach (Button btn in dogController.btnRecords) {
-				btn.gameObject.SetActive(false);
-			}		
-			foreach (Button btn in dogController.btnPlays) {
-				btn.gameObject.SetActive(false);
-			}
-		}
-	}
-
 }

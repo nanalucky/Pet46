@@ -190,13 +190,13 @@ public class Gesture : MonoBehaviour {
 		State state = GetState ();
 		switch (state) {
 		case State.SlideDownOnce:
-			SitDown ();
+			goDog.GetComponent<DogController>().SitDown ();
 			break;
 		case State.SlideDownTwice:
-			FallDown();
+			goDog.GetComponent<DogController>().FallDown();
 			break;
 		case State.SlideUpTwice:
-			StandUp();
+			goDog.GetComponent<DogController>().StandUp();
 			break;
 		case State.None:
 			if(Input.GetMouseButtonUp(0))
@@ -205,13 +205,13 @@ public class Gesture : MonoBehaviour {
 				RaycastHit hit;
 				if(coRight.Raycast(ray, out hit, 100.0f))
 				{
-					RightRawUp();
+					goDog.GetComponent<DogController>().RightRawUp();
 					lastRawTime = Time.time;
 				}
 
 				if(coLeft.Raycast(ray, out hit, 100.0f))
 				{
-					LeftRawUp();
+					goDog.GetComponent<DogController>().LeftRawUp();
 					lastRawTime = Time.time;
 				}
 			}
@@ -227,61 +227,5 @@ public class Gesture : MonoBehaviour {
 		return slideDown.GetState ();
 	}
 
-	bool IsStand()
-	{
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Stand") 
-			|| animator.GetCurrentAnimatorStateInfo (0).IsName ("Idle1") 
-			|| animator.GetCurrentAnimatorStateInfo (0).IsName ("Idle2")) {
-			return true;
-		}
 
-		return false;
-	}
-
-	public void SitDown()
-	{
-		if (IsStand ()) {
-			animator.Play ("SitDown");
-		}
-	}
-
-	public void FallDown()
-	{
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SitIdle")) {
-			animator.Play ("SitToFall");
-		}
-		else
-		{
-			if (IsStand ()) {
-				animator.Play ("StandToFall");
-			}
-		}
-	}
-
-	public void StandUp()
-	{
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SitIdle")) {
-			animator.Play ("SitToStand");
-		}
-		else
-		{
-			if (animator.GetCurrentAnimatorStateInfo (0).IsName ("FallIdle")) {
-				animator.Play ("FallToSit");
-			}
-		}
-	}
-
-	public void RightRawUp()
-	{
-		if (IsStand ()) {
-			animator.Play("RightRawUp");
-		}
-	}
-
-	public void LeftRawUp()
-	{
-		if (IsStand ()) {
-			animator.Play("LeftRawUp");
-		}
-	}
 }

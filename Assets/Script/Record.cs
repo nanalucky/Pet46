@@ -130,15 +130,15 @@ public class Record : MonoBehaviour
 		Debug.Log(string.Format("Detected: {0}", args.Details.Label));
 
 		if (string.Compare(args.Details.Label, WORD_SITDOWN) == 0) {
-			GameObject.FindGameObjectWithTag("Interact").GetComponent<Gesture>().SitDown();
+			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().SitDown();
 		} else if (string.Compare(args.Details.Label, WORD_FALLDOWN) == 0) {
-			GameObject.FindGameObjectWithTag("Interact").GetComponent<Gesture>().FallDown();
+			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().FallDown();
 		}else if (string.Compare(args.Details.Label, WORD_STANDUP) == 0) {
-			GameObject.FindGameObjectWithTag("Interact").GetComponent<Gesture>().StandUp();
+			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().StandUp();
 		}else if (string.Compare(args.Details.Label, WORD_RIGHTRAWUP) == 0) {
-			GameObject.FindGameObjectWithTag("Interact").GetComponent<Gesture>().RightRawUp();
+			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().RightRawUp();
 		}else if (string.Compare(args.Details.Label, WORD_LEFTRAWUP) == 0) {
-			GameObject.FindGameObjectWithTag("Interact").GetComponent<Gesture>().LeftRawUp();
+			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().LeftRawUp();
 		}
 	}
 	
@@ -247,6 +247,7 @@ public class Record : MonoBehaviour
 			GetComponent<AudioSource>().mute = false;
 			if (playAudio)
 			{
+				EnableDetectWords(true);
 				if (NormalizeWave)
 				{
 					GetComponent<AudioSource>().PlayOneShot(details.Audio, 0.1f);
@@ -469,5 +470,24 @@ public class Record : MonoBehaviour
 				GetComponent<AudioSource>().PlayOneShot(details.Audio);
 			}
 		}
+	}
+
+	public bool HasProfile(string wordLabel)
+	{
+		WordDetails details = GetWord (wordLabel);
+		if (null != details.Audio)
+			return true;
+
+		return false;
+	}
+
+	public void EnableDetectWords(bool enable)
+	{
+		AudioWordDetection.UsePushToTalk = !enable;
+	}
+
+	public bool IsEnableDetectWords()
+	{
+		return !AudioWordDetection.UsePushToTalk;
 	}
 }

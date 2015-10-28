@@ -2346,7 +2346,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 130423207}
   m_OnClick:
     m_PersistentCalls:
@@ -5800,6 +5800,7 @@ GameObject:
   - 114: {fileID: 458554841}
   - 114: {fileID: 458554840}
   - 114: {fileID: 458554843}
+  - 114: {fileID: 458554844}
   m_Layer: 5
   m_Name: ButtonRightRawRecord
   m_TagString: Untagged
@@ -5906,6 +5907,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal: {fileID: 21300000, guid: 45627ae1fd0c4c841a5a77583fd3f419, type: 3}
   pressed: {fileID: 21300000, guid: 09a4d8bc2f0431f4fa6d9c8dd377b330, type: 3}
+--- !u!114 &458554844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458554838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8834b22f8d19c4486f39ad7518e9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  word: RightRawUp
+  saved: {fileID: 21300000, guid: bd2b20a31f3faba43bf9e20a8142f02d, type: 3}
 --- !u!1001 &461006363
 Prefab:
   m_ObjectHideFlags: 0
@@ -10277,6 +10291,7 @@ GameObject:
   - 114: {fileID: 864286548}
   - 114: {fileID: 864286547}
   - 114: {fileID: 864286550}
+  - 114: {fileID: 864286551}
   m_Layer: 5
   m_Name: 'ButtonLeftRawRecord '
   m_TagString: Untagged
@@ -10383,6 +10398,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal: {fileID: 21300000, guid: a41fd2425575e594aaf78d6e9358e2fd, type: 3}
   pressed: {fileID: 21300000, guid: 69fd02385affa864a91c0484cc78e7bf, type: 3}
+--- !u!114 &864286551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864286545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8834b22f8d19c4486f39ad7518e9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  word: LeftRawUp
+  saved: {fileID: 21300000, guid: dce86e233eae1cc40a443911bdeae106, type: 3}
 --- !u!1 &871143607
 GameObject:
   m_ObjectHideFlags: 0
@@ -10683,7 +10711,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400102, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 100102, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_TagString
@@ -13028,6 +13056,7 @@ GameObject:
   - 114: {fileID: 1112717571}
   - 114: {fileID: 1112717570}
   - 114: {fileID: 1112717573}
+  - 114: {fileID: 1112717574}
   m_Layer: 5
   m_Name: ButtonFallRecord
   m_TagString: Untagged
@@ -13134,6 +13163,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal: {fileID: 21300000, guid: 88663f043e7eed74dade6541444f8be6, type: 3}
   pressed: {fileID: 21300000, guid: 3f5a91a717bec614c911bc3a1cf9c680, type: 3}
+--- !u!114 &1112717574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112717568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8834b22f8d19c4486f39ad7518e9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  word: FallDown
+  saved: {fileID: 21300000, guid: 63f5c1f170213f94c8061b477d25d62b, type: 3}
 --- !u!1 &1129655056
 GameObject:
   m_ObjectHideFlags: 0
@@ -15043,6 +15085,7 @@ GameObject:
   - 114: {fileID: 1323312399}
   - 114: {fileID: 1323312398}
   - 114: {fileID: 1323312401}
+  - 114: {fileID: 1323312402}
   m_Layer: 5
   m_Name: ButtonSitRecord
   m_TagString: Untagged
@@ -15149,6 +15192,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal: {fileID: 21300000, guid: af82a0d60a4a80240b7c6c21c5563ac1, type: 3}
   pressed: {fileID: 21300000, guid: 947fef4989b14f54a9941f822f31e4c8, type: 3}
+--- !u!114 &1323312402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1323312396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8834b22f8d19c4486f39ad7518e9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  word: SitDown
+  saved: {fileID: 21300000, guid: 393106ce1cb27d64d874a8bb1fedad62, type: 3}
 --- !u!1 &1341739965
 GameObject:
   m_ObjectHideFlags: 0
@@ -16344,6 +16400,7 @@ GameObject:
   - 114: {fileID: 1435562658}
   - 114: {fileID: 1435562657}
   - 114: {fileID: 1435562660}
+  - 114: {fileID: 1435562661}
   m_Layer: 5
   m_Name: ButtonStandRecord
   m_TagString: Untagged
@@ -16450,6 +16507,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal: {fileID: 21300000, guid: fbee3ae9c9060964f9f17001bc2407ac, type: 3}
   pressed: {fileID: 21300000, guid: 66007ed46daaf6142b64958b3de3997f, type: 3}
+--- !u!114 &1435562661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1435562655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8834b22f8d19c4486f39ad7518e9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  word: StandUp
+  saved: {fileID: 21300000, guid: 99fc77ae33fbea341be587b1567af570, type: 3}
 --- !u!1001 &1441868934
 Prefab:
   m_ObjectHideFlags: 0
@@ -21819,7 +21889,7 @@ Transform:
   m_PrefabInternal: {fileID: 907669666}
   m_GameObject: {fileID: 1988760319}
   m_LocalRotation: {x: -.500000358, y: .499999702, z: -.499999702, w: .500000358}
-  m_LocalPosition: {x: -.210811302, y: -2.6387201e-07, z: 0}
+  m_LocalPosition: {x: -.210811272, y: -2.63871954e-07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1715728033}

@@ -22,13 +22,7 @@ public class UIController : MonoBehaviour {
 
 	public void OnClickRecord()
 	{
-		DogController dogController = GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>();
-		foreach (Button btn in dogController.btnRecords) {
-			btn.gameObject.SetActive (true);
-		}
-		foreach (Button btn in dogController.btnPlays) {
-			btn.gameObject.SetActive (false);
-		}
+		GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().ToExercise ();
 	}
 
 	public void OnClickPlay()

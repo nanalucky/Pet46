@@ -278,7 +278,7 @@ public class EnterInteract : MonoBehaviour {
 	public float stayTime = 1.0f;
 
 	public AI aiMoveCamera;
-	private AI lastAI;
+	protected AI lastAI;
 	
 	// Use this for initialization
 	void Start () {

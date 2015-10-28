@@ -17,15 +17,19 @@ public class DogController : MonoBehaviour {
 	public Button[] btnRecords;
 	public Button[] btnPlays;
 
+	private Animator animator;
+
 	public Vector3[] lookats = new Vector3[]{new Vector3(7f,0f,5f),new Vector3(5f,0f,6f),new Vector3(3.5f,0f,4f),new Vector3(5f,0f,4f)};
 
 	// Use this for initialization
 	void Start () {
+		animator = gameObject.GetComponent<Animator> ();
 	}
 
 	void Update(){
 		if (Input.GetKeyUp(KeyCode.A)) {
 			gameObject.GetComponent<Animator>().Play("Blink", 2);	
+			gameObject.GetComponent<Animator>().Play("Blink", 5);	
 		}
 	}
 
@@ -34,7 +38,7 @@ public class DogController : MonoBehaviour {
 		LookAtIK lookatik = GameObject.FindGameObjectWithTag ("dog").GetComponent<LookAtIK> ();
 		if (enabled) {
 			lookatik.enabled = true;
-			Debug.LogWarning(string.Format("lookatid enable:{0}", Time.time));
+			//Debug.LogWarning(string.Format("lookatid enable:{0}", Time.time));
 		} else {
 			lookatik.Disable();
 			StartCoroutine(PlayAnimInterval(2, 0.5f));
@@ -46,11 +50,12 @@ public class DogController : MonoBehaviour {
 		while (n > 0)
 		{
 			var anim = GameObject.FindGameObjectWithTag ("dog").GetComponent<Animator> ();
-			if(anim.GetCurrentAnimatorStateInfo(1).IsName("Blink")){
+			if(anim.GetCurrentAnimatorStateInfo(2).IsName("Blink")){
 				yield return new WaitForSeconds(0);
 			} else {
-				Debug.LogWarning(string.Format("Blink:{0}", Time.time));
+				//Debug.LogWarning(string.Format("Blink:{0}", Time.time));
 				anim.Play ("Blink", 2);
+				anim.Play ("Blink", 5);
 				--n;
 				yield return new WaitForSeconds(time);
 			}
@@ -81,29 +86,88 @@ public class DogController : MonoBehaviour {
 		return (Vector3)(validLookats[(int)(Random.value * validLookats.Count)]);
 	}
 
+	bool IsStand()
+	{
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Stand") 
+		    || animator.GetCurrentAnimatorStateInfo (0).IsName ("Idle1") 
+		    || animator.GetCurrentAnimatorStateInfo (0).IsName ("Idle2")) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public void SitDown()
+	{
+		if (IsStand ()) {
+			animator.Play ("SitDown");
+		}
+	}
+	
+	public void FallDown()
+	{
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SitIdle")) {
+			animator.Play ("SitToFall");
+		}
+		else
+		{
+			if (IsStand ()) {
+				animator.Play ("StandToFall");
+			}
+		}
+	}
+	
+	public void StandUp()
+	{
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SitIdle")) {
+			animator.Play ("SitToStand");
+		}
+		else
+		{
+			if (animator.GetCurrentAnimatorStateInfo (0).IsName ("FallIdle")) {
+				animator.Play ("FallToSit");
+			}
+		}
+	}
+	
+	public void RightRawUp()
+	{
+		if (IsStand ()) {
+			animator.Play("RightRawUp");
+		}
+	}
+	
+	public void LeftRawUp()
+	{
+		if (IsStand ()) {
+			animator.Play("LeftRawUp");
+		}
+	}
+
 	void ClearAll()
 	{
 		Time.fixedDeltaTime = 0.02f;
 
+		// robot
 		Destroy(GameObject.FindGameObjectWithTag("RobotScript"));
 
-
+		// interact
 		Destroy(GameObject.FindGameObjectWithTag("EnterInteract"));
 		Destroy(GameObject.FindGameObjectWithTag("Interact"));
-		btnRecord.interactable = false;
-		btnPlay.interactable = false;
-		foreach (Button btn in btnRecords) {
-			btn.gameObject.SetActive(false);
-		}		
-		foreach (Button btn in btnPlays) {
-			btn.gameObject.SetActive(false);
-		}
 
 
+		// ball
 		Destroy(GameObject.FindGameObjectWithTag("EnterBall"));
 		Destroy(GameObject.FindGameObjectWithTag("Ball"));
 		Destroy (GameObject.FindGameObjectWithTag ("Mouth").GetComponent<BallCollideMouth> ());
 		EnableLookatIK (false);
+
+		// exercise
+		Destroy(GameObject.FindGameObjectWithTag("EnterExercise"));
+		Destroy(GameObject.FindGameObjectWithTag("Exercise"));
+		foreach (Button btn in btnRecords) {
+			btn.gameObject.SetActive(false);
+		}		
 	}
 
 	public void ToRobot()
@@ -122,5 +186,11 @@ public class DogController : MonoBehaviour {
 	{
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterBall"));
+	}
+
+	public void ToExercise()
+	{
+		ClearAll ();
+		Instantiate(Resources.Load("Prefabs/EnterExercise"));
 	}
 }

@@ -64,6 +64,17 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+  - serializedVersion: 3
+    m_Name: eyeball
+    m_StateMachine: {fileID: 110793798}
+    m_Mask: {fileID: 0}
+    m_BlendingMode: 0
+    m_SyncedLayerIndex: -1
+    m_StateMachineMotionSetIndex: 0
+    m_DefaultWeight: 1
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
 --- !u!206 &20616766
 BlendTree:
   m_ObjectHideFlags: 3
@@ -298,6 +309,26 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 1
+--- !u!1101 &110142934
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110266652}
+  m_DstState: {fileID: 110221840}
+  m_TransitionDuration: 1.87497497
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: 0
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1101 &110144238
 Transition:
   serializedVersion: 2
@@ -390,6 +421,26 @@ Transition:
     m_ConditionEvent: 
     m_EventTreshold: 0
     m_ExitTime: .0113525363
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110158996
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110289502}
+  m_DstState: {fileID: 110221840}
+  m_TransitionDuration: .937494218
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: .0625057817
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -774,7 +825,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400076, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
+  - {fileID: 7400056, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
   m_ParentStateMachine: {fileID: 110747568}
   m_Position: {x: 540, y: -24, z: 0}
   m_IKOnFeet: 0
@@ -854,6 +905,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110218346
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: EyeHalf
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400084, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
+  m_ParentStateMachine: {fileID: 110793798}
+  m_Position: {x: 420, y: -24, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110220812
 State:
   m_ObjectHideFlags: 1
@@ -865,6 +931,21 @@ State:
   m_Motions: []
   m_ParentStateMachine: {fileID: 0}
   m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110221840
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: empty
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 0}
+  m_ParentStateMachine: {fileID: 110793798}
+  m_Position: {x: 420, y: 24, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -1087,6 +1168,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110249374
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: EyeClose
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400080, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
+  m_ParentStateMachine: {fileID: 110793798}
+  m_Position: {x: 192, y: -24, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110249532
 State:
   m_ObjectHideFlags: 3
@@ -1229,6 +1325,21 @@ State:
   m_Motions: []
   m_ParentStateMachine: {fileID: 0}
   m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110266652
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: EyeOpen
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400082, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
+  m_ParentStateMachine: {fileID: 110793798}
+  m_Position: {x: 192, y: 24, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -1508,6 +1619,21 @@ State:
   - {fileID: 7400000, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
   m_ParentStateMachine: {fileID: 110792158}
   m_Position: {x: -36, y: -312, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110289502
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Blink
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400078, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
+  m_ParentStateMachine: {fileID: 110793798}
+  m_Position: {x: 192, y: 96, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -1828,4 +1954,32 @@ StateMachine:
       - {fileID: 110187718}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -252, y: -252, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+--- !u!1107 &110793798
+StateMachine:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: eyeball
+  m_DefaultState: {fileID: 110221840}
+  m_States:
+  - {fileID: 110249374}
+  - {fileID: 110218346}
+  - {fileID: 110266652}
+  - {fileID: 110221840}
+  - {fileID: 110289502}
+  m_ChildStateMachine: []
+  m_ChildStateMachinePosition: []
+  m_OrderedTransitions:
+    data:
+      first: {fileID: 110289502}
+      second:
+      - {fileID: 110158996}
+    data:
+      first: {fileID: 110266652}
+      second:
+      - {fileID: 110142934}
+  m_MotionSetCount: 1
+  m_AnyStatePosition: {x: -12, y: 12, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
