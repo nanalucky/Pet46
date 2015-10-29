@@ -49,6 +49,7 @@ MonoBehaviour:
   touchTime: 1
   minOffset: {x: 0, y: 0, z: 0}
   maxOffset: {x: 0, y: .150000006, z: .100000001}
+  smooth: .100000001
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

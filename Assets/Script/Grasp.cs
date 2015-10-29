@@ -8,6 +8,7 @@ public class Grasp : MonoBehaviour {
 	{
 		Touch,
 		Grasp,
+		GraspFade,
 		None,
 	}
 
@@ -19,6 +20,7 @@ public class Grasp : MonoBehaviour {
 	public float touchTime = 1.0f;
 	public Vector3 minOffset = new Vector3 (0.0f, 0.0f, 0.0f);
 	public Vector3 maxOffset = new Vector3 (0.0f, 0.15f, 0.15f);
+	public float smooth = 0.1f;
 
 	private Camera mainCamera;
 	private GameObject goDog;
@@ -29,6 +31,8 @@ public class Grasp : MonoBehaviour {
 	private LimbIK limbIK;
 	private float lastTouchTime;
 	private Vector3 firstPosition;
+	private float velPosition;
+	private float velRotation;
 
 	// Use this for initialization
 	void Start () {
@@ -84,9 +88,9 @@ public class Grasp : MonoBehaviour {
 		case State.Grasp:
 			if(!Input.GetMouseButton(0))
 			{
-				state = State.None;
-				limbIK.solver.IKPositionWeight = 0.0f;
-				limbIK.solver.IKRotationWeight = 0.0f;
+				state = State.GraspFade;
+				velPosition = 0.0f;
+				velRotation = 0.0f;
 			}
 			else
 			{
@@ -99,6 +103,18 @@ public class Grasp : MonoBehaviour {
 				curInLocal.z = Mathf.Clamp(curInLocal.z, firstInLocal.z + minOffset.z, firstInLocal.z + maxOffset.z);
 				Vector3 curInWorld = goDog.transform.rotation * curInLocal;
 				limbIK.solver.IKPosition = curInWorld;
+			}
+			break;
+		case State.GraspFade:
+			if (limbIK.solver.IKPositionWeight != 0.0f)
+				limbIK.solver.IKPositionWeight = Mathf.SmoothDamp(limbIK.solver.IKPositionWeight, 0.0f, ref velPosition, smooth);
+			if (limbIK.solver.IKRotationWeight != 0.0f)
+				limbIK.solver.IKRotationWeight = Mathf.SmoothDamp(limbIK.solver.IKRotationWeight, 0.0f, ref velRotation, smooth);
+			if (limbIK.solver.IKPositionWeight <= 0.01f && limbIK.solver.IKRotationWeight <= 0.01f)
+			{
+				limbIK.solver.IKPositionWeight = 0.0f;
+				limbIK.solver.IKRotationWeight = 0.0f;
+				state = State.None;
 			}
 			break;
 		}

@@ -12,7 +12,7 @@ public class LookCamera : MonoBehaviour {
 	private float velBody;
 	private float velHead;
 	private float velEye;
-	public float smooth = 0.08f;
+	public float smooth = 0.2f;
 
 	// Use this for initialization
 	void Start () {
