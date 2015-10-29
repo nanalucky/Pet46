@@ -2330,7 +2330,7 @@ ModelImporter:
       name: Sniffer
       takeName: Take 001
       firstFrame: 590
-      lastFrame: 665
+      lastFrame: 655
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -2339,7 +2339,7 @@ ModelImporter:
       loopTime: 1
       loopBlend: 1
       loopBlendOrientation: 1
-      loopBlendPositionY: 1
+      loopBlendPositionY: 0
       loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -3470,7 +3470,7 @@ ModelImporter:
     - serializedVersion: 16
       name: TouchBack
       takeName: Take 001
-      firstFrame: 1112
+      firstFrame: 1120
       lastFrame: 1246
       wrapMode: 0
       orientationOffsetY: 0
@@ -3634,7 +3634,7 @@ ModelImporter:
       name: RightRawUp
       takeName: Take 001
       firstFrame: 880
-      lastFrame: 890
+      lastFrame: 895
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -3959,8 +3959,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Stand
       takeName: Take 001
-      firstFrame: 930
-      lastFrame: 950
+      firstFrame: 920
+      lastFrame: 940
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
