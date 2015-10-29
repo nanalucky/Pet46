@@ -107,7 +107,7 @@ public class RobotController : MonoBehaviour {
 		
 		public override RobotState GetNextState()
 		{
-			var states = new RobotState[]{RobotState.WalkWithNoShake, RobotState.WalkWithLargeShake};
+			var states = new RobotState[]{RobotState.WalkWithNoShake};
 			return states [ (int)(Random.value * 10.0f) % states.Length ];
 		}
 	}
