@@ -1,20 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\ButtonChangeSprite.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\LookCamera.cs">
     <Files>
-      <File FileName="Assets\Script\Exercise.cs" Line="26" Column="2" />
-      <File FileName="Assets\Script\EnterInteract.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Interact.cs" Line="36" Column="1" />
-      <File FileName="Assets\Script\UIController.cs" Line="30" Column="82" />
-      <File FileName="Assets\Script\DogController.cs" Line="169" Column="57" />
-      <File FileName="Assets\Script\EnterExercise.cs" Line="42" Column="4" />
-      <File FileName="Assets\Script\Record.cs" Line="258" Column="6" />
-      <File FileName="Assets\Script\Gesture.cs" Line="214" Column="42" />
-      <File FileName="Assets\Script\ButtonChangeSprite.cs" Line="23" Column="4" />
-      <File FileName="Assets\Script\Grasp.cs" Line="97" Column="102" />
-      <File FileName="Assets\Script\EnterOrder.cs" Line="38" Column="45" />
-      <File FileName="Assets\Script\Order.cs" Line="35" Column="9" />
-      <File FileName="Assets\Script\ButtonChangeImage.cs" Line="28" Column="1" />
+      <File FileName="Assets\Script\LookCamera.cs" Line="40" Column="1" />
+      <File FileName="Assets\RootMotion\FinalIK\_DEMOS\Aim IK\Scripts\AimBoxing.cs" Line="16" Column="1" />
+      <File FileName="Assets\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\EffectorOffset.cs" Line="21" Column="8" />
+      <File FileName="Assets\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\CarryBoxDemo.cs" Line="16" Column="8" />
+      <File FileName="Assets\Script\DogController.cs" Line="53" Column="49" />
+      <File FileName="Assets\Script\SkinnedCollisionHelper.cs" Line="108" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

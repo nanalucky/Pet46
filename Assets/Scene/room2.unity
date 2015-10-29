@@ -5840,8 +5840,8 @@ MonoBehaviour:
       length: 0
       axis: {x: -.945638657, y: .325219899, z: -1.74750681e-07}
     bodyWeight: .5
-    headWeight: .5
-    eyesWeight: 1
+    headWeight: 0
+    eyesWeight: 0
     clampWeight: .5
     clampWeightHead: .5
     clampWeightEyes: .5

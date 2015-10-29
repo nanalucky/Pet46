@@ -18,6 +18,9 @@ public class DogController : MonoBehaviour {
 	public Button[] btnRecords;
 	public Button[] btnPlays;
 
+	private float lookatBodyWeight;
+	private float lookatHeadWeight;
+	private float lookatEyeWeight;
 
 	private Animator animator;
 
@@ -26,6 +29,9 @@ public class DogController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = gameObject.GetComponent<Animator> ();
+		lookatBodyWeight = gameObject.GetComponent<LookAtIK> ().solver.bodyWeight;
+		lookatHeadWeight = gameObject.GetComponent<LookAtIK> ().solver.headWeight;
+		lookatEyeWeight = gameObject.GetComponent<LookAtIK> ().solver.eyesWeight;
 	}
 
 	void Update(){
@@ -42,6 +48,9 @@ public class DogController : MonoBehaviour {
 			lookatik.enabled = true;
 			//Debug.LogWarning(string.Format("lookatid enable:{0}", Time.time));
 		} else {
+			lookatik.solver.bodyWeight = lookatBodyWeight;
+			lookatik.solver.headWeight = lookatHeadWeight;
+			lookatik.solver.eyesWeight = lookatEyeWeight;
 			lookatik.Disable();
 			StartCoroutine(PlayAnimInterval(2, 0.5f));
 		}
