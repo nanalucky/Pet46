@@ -181,6 +181,7 @@ public class DogController : MonoBehaviour {
 	void ClearAll()
 	{
 		Time.fixedDeltaTime = 0.02f;
+		GetComponent<StartIdle> ().enabled = false;
 
 		// robot
 		Destroy(GameObject.FindGameObjectWithTag("RobotScript"));

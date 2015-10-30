@@ -5727,6 +5727,7 @@ GameObject:
   - 95: {fileID: 442346076}
   - 114: {fileID: 442346075}
   - 114: {fileID: 442346074}
+  - 114: {fileID: 442346077}
   m_Layer: 8
   m_Name: Fbd
   m_TagString: dog
@@ -5877,6 +5878,23 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &442346077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 442346072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709f5c135ad88124eb98fc54272163ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minInterval: 1
+  maxInterval: 3
+  animations:
+  - Idle3
+  - Idle2
+  stand: Idle1
 --- !u!1 &447983006
 GameObject:
   m_ObjectHideFlags: 0
