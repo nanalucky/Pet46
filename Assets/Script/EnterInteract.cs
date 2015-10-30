@@ -99,6 +99,39 @@ public class EnterInteract : MonoBehaviour {
 
 		public override AIState GetNextState()
 		{
+			return AIState.StandUp;
+		}
+	}
+
+	public class AIStandUp : AI
+	{
+		private GameObject go;
+		private DogController dogController;
+		private bool needWaitStand;
+		
+		public override void Start(EnterInteract ctrl)
+		{
+			controller = ctrl;
+			go = GameObject.FindGameObjectWithTag ("dog");
+			dogController = go.GetComponent<DogController> ();
+			Animator animator = go.GetComponent<Animator> ();
+			needWaitStand = false;
+			if(animator.GetCurrentAnimatorStateInfo (0).IsName ("SitIdle") 
+			   || animator.GetCurrentAnimatorStateInfo (0).IsName ("FallIdle")
+			   || animator.GetCurrentAnimatorStateInfo (0).IsName ("SleepIdle"))
+			{
+				needWaitStand = true;
+				dogController.StandUp();
+			}
+		}
+		
+		public override bool IsFinished ()
+		{
+			return !needWaitStand || dogController.IsStand();
+		}
+		
+		public override AIState GetNextState()
+		{
 			return AIState.Turn;
 		}
 	}
@@ -122,7 +155,15 @@ public class EnterInteract : MonoBehaviour {
 			else
 				dstEulerY = go.transform.rotation.eulerAngles.y;
 
-			go.GetComponent<Animator> ().Play ("WalkWithLargeShake");
+			if(Mathf.Abs(dstEulerY - go.transform.rotation.eulerAngles.y) < 0.1f)
+			{
+				inMove = false;
+				go.transform.rotation = Quaternion.Euler(new Vector3(go.transform.rotation.eulerAngles.x, dstEulerY, go.transform.rotation.z));
+			}
+			else
+			{
+				go.GetComponent<Animator> ().Play ("WalkWithNoShake");
+			}
 		}
 
 		public override void Update()
@@ -160,7 +201,8 @@ public class EnterInteract : MonoBehaviour {
 		{
 			controller = ctrl;
 			go = GameObject.FindGameObjectWithTag ("dog");
-			go.GetComponent<Animator> ().Play ("WalkToStand");
+			if(!go.GetComponent<DogController>().IsStand())
+				go.GetComponent<Animator> ().Play ("Stand");
 			endTime = Time.time + ctrl.stayTime;
 		}
 
@@ -196,10 +238,18 @@ public class EnterInteract : MonoBehaviour {
 			mainCamera = Camera.main;
 			go = GameObject.FindGameObjectWithTag ("dog");
 
-			inMove = true;
-			go.GetComponent<Animator> ().Play ("Run");
 			startPosition = go.transform.position;
 			time = 0.0f;
+			if ((controller.lookat - startPosition).magnitude <= 0.01f) 
+			{
+				inMove = false;
+				go.transform.position = controller.lookat;			
+			}
+			else
+			{
+				inMove = true;
+				go.GetComponent<Animator> ().Play ("WalkWithNoShake");
+			}
 		}
 
 		public override void Update()
@@ -257,6 +307,7 @@ public class EnterInteract : MonoBehaviour {
 	public enum AIState
 	{
 		MoveCamera,
+		StandUp,
 		Turn,
 		Stay,
 		Run,
@@ -287,7 +338,7 @@ public class EnterInteract : MonoBehaviour {
 
 		aiMoveCamera = new AIMoveCamera ();
 		aiMoveCamera.Start (this);
-		lastAI = new AITurn ();
+		lastAI = new AIStandUp ();
 		lastAI.Start (this);
 	}
 	
@@ -315,6 +366,9 @@ public class EnterInteract : MonoBehaviour {
 
 		AI ai;
 		switch (state) {
+		case AIState.Turn:
+			ai = new AITurn();
+			break;
 		case AIState.Stay:
 			ai = new AIStay();
 			break;

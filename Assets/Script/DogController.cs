@@ -97,7 +97,7 @@ public class DogController : MonoBehaviour {
 		return (Vector3)(validLookats[(int)(Random.value * validLookats.Count)]);
 	}
 
-	bool IsStand()
+	public bool IsStand()
 	{
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Stand") 
 		    || animator.GetCurrentAnimatorStateInfo (0).IsName ("Idle1") 
@@ -133,11 +133,11 @@ public class DogController : MonoBehaviour {
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SitIdle")) {
 			animator.Play ("SitToStand");
 		}
-		else
-		{
-			if (animator.GetCurrentAnimatorStateInfo (0).IsName ("FallIdle")) {
-				animator.Play ("FallToSit");
-			}
+		else if (animator.GetCurrentAnimatorStateInfo (0).IsName ("FallIdle")) {
+			animator.Play ("FallToSit");
+		}
+		else if(animator.GetCurrentAnimatorStateInfo(0).IsName("SleepIdle")) {
+			animator.Play("Wake");
 		}
 	}
 	
