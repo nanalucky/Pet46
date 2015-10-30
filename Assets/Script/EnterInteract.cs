@@ -273,8 +273,17 @@ public class EnterInteract : MonoBehaviour {
 			return !inMove;
 		}
 
+		static bool first = true;
 		public override AIState GetNextState()
 		{
+			//var states = new AIState[]{AIState.Sit, AIState.Idle3};
+			//return states [ Random.Range(0, states.Length) ];
+
+			if (first)
+			{
+				first = false;
+				return AIState.Idle3;
+			}
 			return AIState.Sit;
 		}
 	}
@@ -304,6 +313,31 @@ public class EnterInteract : MonoBehaviour {
 		}
 	}
 
+	public class AIIdle3 : AI
+	{
+		private GameObject go;
+		
+		public override void Start(EnterInteract ctrl)
+		{
+			controller = ctrl;
+			go = GameObject.FindGameObjectWithTag ("dog");
+			go.GetComponent<Animator> ().Play ("Idle3");
+		}
+		
+		public override bool IsFinished()
+		{
+			if (go.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("Idle1"))
+				return true;
+			
+			return false;
+		}
+		
+		public override AIState GetNextState()
+		{
+			return AIState.None;
+		}
+	}
+
 	public enum AIState
 	{
 		MoveCamera,
@@ -312,6 +346,7 @@ public class EnterInteract : MonoBehaviour {
 		Stay,
 		Run,
 		Sit,
+		Idle3,
 		None,
 	}
 
@@ -378,6 +413,9 @@ public class EnterInteract : MonoBehaviour {
 		case AIState.Sit:
 			ai = new AISit();
 			break;
+		case AIState.Idle3:
+			ai = new AIIdle3();
+		break;
 		default:
 			ai = new AISit();
 			break;

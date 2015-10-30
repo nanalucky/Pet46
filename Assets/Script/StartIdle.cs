@@ -5,14 +5,16 @@ public class StartIdle : MonoBehaviour {
 
 	public int minInterval = 1;
 	public int maxInterval = 3;
-	public string[] animations = new string[]{"Idle3", "Idle2"};
+	public string[] animations = new string[]{"Idle3", "Idle2", "Idle2"};
 	public string stand = "Idle1";
 
 	private float endTime;
+	private int count;
 
 	// Use this for initialization
 	void Start () {
 		endTime = Time.time + Random.Range (minInterval, maxInterval);
+		count = 0;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +24,8 @@ public class StartIdle : MonoBehaviour {
 			if(Time.time > endTime)
 			{
 				endTime = 0;
-				GameObject.FindGameObjectWithTag("dog").GetComponent<Animator>().Play(animations[(int)(Random.value * 10.0f) % animations.Length], 0);
+				//GameObject.FindGameObjectWithTag("dog").GetComponent<Animator>().Play(animations[Random.Range(0, animations.Length)], 0);
+				GameObject.FindGameObjectWithTag("dog").GetComponent<Animator>().Play(animations[(count++)%animations.Length], 0); 
 			}
 		}
 		else
