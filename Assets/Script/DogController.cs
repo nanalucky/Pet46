@@ -145,15 +145,38 @@ public class DogController : MonoBehaviour {
 	{
 		if (IsStand ()) {
 			animator.Play("RightRawUp");
+		}else{
+            StandUp();
+            StartCoroutine("PlayRightRawUp");
 		}
 	}
+    IEnumerator PlayRightRawUp()
+    {
+        while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Stand"))
+        {
+			yield return null;
+		}
+        animator.Play("RightRawUp");
+    }
 	
 	public void LeftRawUp()
 	{
 		if (IsStand ()) {
 			animator.Play("LeftRawUp");
+		}else{
+            StandUp();
+            StartCoroutine("PlayLeftRawUp");
 		}
 	}
+
+    IEnumerator PlayLeftRawUp()
+    {
+		while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Stand"))
+		{
+			yield return null;
+		}
+		animator.Play("LeftRawUp");
+    }
 
 	void ClearAll()
 	{
