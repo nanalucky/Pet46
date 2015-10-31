@@ -393,7 +393,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: .231734723
+        functionName: PlayAudioEffect
+        data: talk2
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: .327004194
+        functionName: PlayAudioEffect
+        data: talk2
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -719,7 +735,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: .160493568
+        functionName: PlayAudioEffect
+        data: walk,0.005
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: .555555284
+        functionName: PlayAudioEffect
+        data: walk,0.005
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -3327,7 +3359,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: .194092765
+        functionName: PlayAudioEffect
+        data: touchhead
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: .662447691
+        functionName: PlayAudioEffect
+        data: touchhead
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -3490,7 +3538,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: .177215368
+        functionName: PlayAudioEffect
+        data: touchback
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: .660337627
+        functionName: PlayAudioEffect
+        data: touchback
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -6110,7 +6174,31 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: .0316455103
+        functionName: PlayAudioEffect
+        data: talk2
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: .405063272
+        functionName: PlayAudioEffect
+        data: sniffer,0.1
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: .831223786
+        functionName: PlayAudioEffect
+        data: talk2
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -6277,7 +6365,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: .276542932
+        functionName: PlayAudioEffect
+        data: walk,0.005
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: .790123403
+        functionName: PlayAudioEffect
+        data: walk,0.005
+        objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

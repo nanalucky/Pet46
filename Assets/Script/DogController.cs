@@ -182,6 +182,7 @@ public class DogController : MonoBehaviour {
 	{
 		Time.fixedDeltaTime = 0.02f;
 		GetComponent<StartIdle> ().enabled = false;
+		MuteMusicAndEffect (false);
 
 		// robot
 		Destroy(GameObject.FindGameObjectWithTag("RobotScript"));
@@ -230,11 +231,30 @@ public class DogController : MonoBehaviour {
 	{
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterExercise"));
+		MuteMusicAndEffect (true);
 	}
 
 	public void ToOrder()
 	{
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterOrder"));
+		MuteMusicAndEffect (true);
+	}
+
+	public void PlayAudioEffect(string clipname)
+	{
+		string[] ret = clipname.Split (',');
+		float volume = 1.0f;
+		if(ret.Length >= 2)
+			float.TryParse(ret[1], out volume);
+		AudioClip audioClip = Resources.Load<AudioClip> (string.Format("Audio/{0}", ret[0]));
+		AudioSource audioSource = gameObject.GetComponent<AudioSource> ();
+		audioSource.PlayOneShot (audioClip, volume);
+	}
+
+	public void MuteMusicAndEffect(bool mute)
+	{
+		Camera.main.GetComponent<AudioSource>().mute = mute;
+		gameObject.GetComponent<AudioSource> ().mute = mute;
 	}
 }
