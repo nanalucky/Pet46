@@ -49,6 +49,7 @@ MonoBehaviour:
   touchTime: 1
   animatorLayer: 4
   animName: ear
+  method: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

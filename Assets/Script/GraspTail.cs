@@ -10,6 +10,12 @@ public class GraspTail : MonoBehaviour {
 		Grasp,
 		None,
 	}
+
+	public enum GraspMethod
+	{
+		ProjectPointLine,
+		ScreenToWorldPoint,
+	}
 	
 	
 	public State state;
@@ -19,6 +25,7 @@ public class GraspTail : MonoBehaviour {
 	public float touchTime = 1.0f;
 	public int animatorLayer = 0;
 	public string animName;
+	public GraspMethod method = GraspMethod.ProjectPointLine;
 
 	private Camera mainCamera;
 	private GameObject go;
@@ -28,6 +35,7 @@ public class GraspTail : MonoBehaviour {
 	private CCDIK ccdIK;
 	private RotationLimit[] rotationLimits;
 	private float lastTouchTime;
+	private float screenz;
 
 
 	// Use this for initialization
@@ -71,6 +79,7 @@ public class GraspTail : MonoBehaviour {
 					state = State.Grasp;
 					ccdIK.solver.IKPositionWeight = 1.0f;
 					ccdIK.solver.IKPosition = ccdIK.solver.bones[ccdIK.solver.bones.Length - 1].transform.position;
+					screenz = Camera.main.WorldToScreenPoint(ccdIK.solver.IKPosition).z;
 				}
 			}
 			else
@@ -90,9 +99,19 @@ public class GraspTail : MonoBehaviour {
 			}
 			else
 			{
-				Ray rayCur = mainCamera.ScreenPointToRay(Input.mousePosition);
-				Vector3 posCur = PetHelper.ProjectPointLine(ccdIK.solver.IKPosition, rayCur.GetPoint(0), rayCur.GetPoint(100));
-				ccdIK.solver.IKPosition = posCur;
+				Vector3 posCur;
+				switch(method)
+				{
+				case GraspMethod.ProjectPointLine:
+					Ray rayCur = mainCamera.ScreenPointToRay(Input.mousePosition);
+					posCur = PetHelper.ProjectPointLine(ccdIK.solver.IKPosition, rayCur.GetPoint(0), rayCur.GetPoint(100));
+					ccdIK.solver.IKPosition = posCur;
+					break;
+				case GraspMethod.ScreenToWorldPoint:
+					posCur = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenz));
+					ccdIK.solver.IKPosition = posCur;
+					break;
+				}
 			}
 			break;
 		}
