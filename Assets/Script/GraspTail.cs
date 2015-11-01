@@ -37,6 +37,7 @@ public class GraspTail : MonoBehaviour {
 	private float lastTouchTime;
 	private float screenz;
 
+	private bool lastMouseDown = false;
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +45,7 @@ public class GraspTail : MonoBehaviour {
 		go = GameObject.Find (partName);
 		go.AddComponent<MeshCollider> ();
 		skinHelper = go.AddComponent<SkinnedCollisionHelper> ();
+		skinHelper.updateOncePerFrame = false;
 		co = go.GetComponent<MeshCollider> ();
 		
 		state = State.None;
@@ -58,13 +60,19 @@ public class GraspTail : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		skinHelper.forceUpdate = true;
-		
 		Ray ray = mainCamera.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
-		bool ret = co.Raycast (ray, out hit, 100.0f) && Input.GetMouseButton(0);
+		bool ret;// = co.Raycast (ray, out hit, 100.0f) && Input.GetMouseButton(0);
 		switch (state) {
 		case State.None:
+			ret = false;
+			if(!lastMouseDown && Input.GetMouseButton(0))
+			{
+				skinHelper.UpdateCollisionMesh();
+				ret = co.Raycast (ray, out hit, 100.0f);
+			}
+			lastMouseDown = Input.GetMouseButton(0);
+
 			if(ret)
 			{
 				lastTouchTime = Time.time;
@@ -72,6 +80,13 @@ public class GraspTail : MonoBehaviour {
 			}
 			break;
 		case State.Touch:
+			ret = false;
+			if(Input.GetMouseButton(0))
+			{
+				skinHelper.UpdateCollisionMesh();
+				ret = co.Raycast (ray, out hit, 100.0f);
+			}
+
 			if(ret)
 			{
 				if(Time.time - lastTouchTime >= touchTime)

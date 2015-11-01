@@ -29,6 +29,8 @@ public class Touch : MonoBehaviour {
 	private Vector3 lastPosition;
 	private float lastPositionTime;
 
+	private bool lastMouseDown = false;
+
 	// Use this for initialization
 	void Start () {
 		mainCamera = Camera.main;
@@ -36,6 +38,7 @@ public class Touch : MonoBehaviour {
 		go = GameObject.Find (partName);
 		go.AddComponent<MeshCollider> ();
 		skinHelper = go.AddComponent<SkinnedCollisionHelper> ();
+		skinHelper.updateOncePerFrame = false;
 		co = go.GetComponent<MeshCollider> ();
 
 		timeInTouch = 0.0f;
@@ -61,14 +64,20 @@ public class Touch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		skinHelper.forceUpdate = true;
-
 		Ray ray = mainCamera.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
-		bool ret = co.Raycast (ray, out hit, 100.0f) && Input.GetMouseButton(0);
+		bool ret;// = co.Raycast (ray, out hit, 100.0f) && Input.GetMouseButton(0);
 		switch (state) 
 		{
 		case State.None:
+			ret = false;
+			if(!lastMouseDown && Input.GetMouseButton(0))
+			{
+				skinHelper.UpdateCollisionMesh();
+				ret = co.Raycast (ray, out hit, 100.0f);
+			}
+			lastMouseDown = Input.GetMouseButton(0);
+
 			if(ret)
 			{
 				timeInTouch = Time.time;
@@ -78,21 +87,31 @@ public class Touch : MonoBehaviour {
 			}
 			break;
 		case State.Touch:
+			ret = false;
+			if(Input.GetMouseButton(0))
+			{
+				skinHelper.UpdateCollisionMesh();
+				ret = co.Raycast (ray, out hit, 100.0f);
+			}
+
 			if(ret && InTouch())
 			{
 				if(Time.time - timeInTouch >= timeIntoEnjoy)
 				{
 					state = State.Enjoy;
-					goDog.GetComponent<Animator>().Play("EyeHalf", 2);
-					goDog.GetComponent<Animator>().Play("EyeHalf", 5);
 					if(string.Compare(animationName, "TouchHead") == 0)
 					{
-						goDog.GetComponent<Animator>().Play ("TouchHead", 1);
-						goDog.GetComponent<Animator>().Play("TongueOut", 3);
+						if(goDog.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SitIdle"))
+							goDog.GetComponent<Animator>().Play("TouchHeadHeadForSit", 1);
+						else
+							goDog.GetComponent<Animator>().Play ("TouchHeadHead", 1);
 					}
 					else
 					{
-						goDog.GetComponent<Animator>().Play (animationName);
+						if(goDog.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SitIdle"))
+							goDog.GetComponent<Animator>().Play ("TouchBackHeadForSit", 1);
+						else
+							goDog.GetComponent<Animator>().Play ("TouchBackHead", 1);
 					}
 				}
 			}
@@ -102,6 +121,13 @@ public class Touch : MonoBehaviour {
 			}
 			break;
 		case State.Enjoy:
+			ret = false;
+			if(Input.GetMouseButton(0))
+			{
+				skinHelper.UpdateCollisionMesh();
+				ret = co.Raycast (ray, out hit, 100.0f);
+			}
+
 			if(!(ret && InTouch ()))
 			{
 				state = State.NotTouch;
@@ -109,6 +135,13 @@ public class Touch : MonoBehaviour {
 			}
 			break;
 		case State.NotTouch:
+			ret = false;
+			if(Input.GetMouseButton(0))
+			{
+				skinHelper.UpdateCollisionMesh();
+				ret = co.Raycast (ray, out hit, 100.0f);
+			}
+
 			if(ret && InTouch())
 			{
 				state = State.Enjoy;
@@ -118,16 +151,13 @@ public class Touch : MonoBehaviour {
 				if(Time.time - timeNotInTouch > timeOutEnjoy)
 				{
 					state = State.None;
-					goDog.GetComponent<Animator>().Play("EyeOpen", 2);
-					goDog.GetComponent<Animator>().Play("EyeOpen", 5);
 					if(string.Compare(animationName, "TouchHead") == 0)
 					{
 						goDog.GetComponent<Animator>().Play("empty", 1);
-						goDog.GetComponent<Animator>().Play("TongueIn", 3);
 					}
 					else
 					{
-						goDog.GetComponent<Animator>().Play("Stand");
+						goDog.GetComponent<Animator>().Play ("empty", 1);
 					}
 				}
 			}

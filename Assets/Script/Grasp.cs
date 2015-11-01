@@ -34,6 +34,8 @@ public class Grasp : MonoBehaviour {
 	private float velPosition;
 	private float velRotation;
 
+	private bool lastMouseDown = false;
+
 	// Use this for initialization
 	void Start () {
 		mainCamera = Camera.main;
@@ -41,6 +43,7 @@ public class Grasp : MonoBehaviour {
 		go = GameObject.Find (partName);
 		go.AddComponent<MeshCollider> ();
 		skinHelper = go.AddComponent<SkinnedCollisionHelper> ();
+		skinHelper.updateOncePerFrame = false;
 		co = go.GetComponent<MeshCollider> ();
 
 		state = State.None;
@@ -55,13 +58,19 @@ public class Grasp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		skinHelper.forceUpdate = true;
-
 		Ray ray = mainCamera.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
-		bool ret = co.Raycast (ray, out hit, 100.0f) && Input.GetMouseButton(0);
+		bool ret;// = co.Raycast (ray, out hit, 100.0f) && Input.GetMouseButton(0);
 		switch (state) {
 		case State.None:
+			ret = false;
+			if(!lastMouseDown && Input.GetMouseButton(0))
+			{
+				skinHelper.UpdateCollisionMesh();
+				ret = co.Raycast (ray, out hit, 100.0f);
+			}
+			lastMouseDown = Input.GetMouseButton(0);
+
 			if(ret)
 			{
 				lastTouchTime = Time.time;
@@ -69,20 +78,27 @@ public class Grasp : MonoBehaviour {
 			}
 			break;
 		case State.Touch:
-			if(ret)
+			ret = false;
+			if(Input.GetMouseButton(0))
 			{
-				if(Time.time - lastTouchTime >= touchTime)
+				skinHelper.UpdateCollisionMesh();
+				ret = co.Raycast (ray, out hit, 100.0f);
+
+				if(ret)
 				{
-					state = State.Grasp;
-					limbIK.solver.IKPositionWeight = 1.0f;
-					limbIK.solver.IKRotationWeight = 0.5f;
-					limbIK.solver.IKPosition = hit.point;
-					firstPosition = hit.point;
+					if(Time.time - lastTouchTime >= touchTime)
+					{
+						state = State.Grasp;
+						limbIK.solver.IKPositionWeight = 1.0f;
+						limbIK.solver.IKRotationWeight = 0.5f;
+						limbIK.solver.IKPosition = hit.point;
+						firstPosition = hit.point;
+					}
 				}
-			}
-			else
-			{
-				state = State.None;
+				else
+				{
+					state = State.None;
+				}
 			}
 			break;
 		case State.Grasp:
