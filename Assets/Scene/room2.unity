@@ -2324,7 +2324,7 @@ MonoBehaviour:
       outSlope: .00999999978
       tangentMode: 0
     - time: 90
-      value: 34.526783
+      value: 39.4897842
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
@@ -2334,7 +2334,7 @@ MonoBehaviour:
       outSlope: .00999999978
       tangentMode: 0
     - time: 270
-      value: 34.7724648
+      value: 4.35249805
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
@@ -7365,27 +7365,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: .00999999978
-      value: 30
+      value: 20
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
     - time: 90
-      value: 16.2193336
+      value: .00999999978
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
     - time: 180
-      value: 30
+      value: 19
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
     - time: 270
-      value: 13.8809919
+      value: 149
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
     - time: 360.01001
-      value: 30
+      value: 20
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
@@ -19823,7 +19823,7 @@ AudioSource:
   m_GameObject: {fileID: 1793943318}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 655b8fc25c951fc40ac37c42defa722d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6c293ee09b05f6148a7480eab13b4fcc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .200000003
   m_Pitch: 1
@@ -21274,27 +21274,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: .00999999978
-      value: 30
+      value: 11
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
     - time: 90
-      value: 17.6211472
+      value: 4.05555296
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
     - time: 180
-      value: 30
+      value: 9
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
     - time: 270
-      value: 13.7186852
+      value: 40
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
     - time: 360.01001
-      value: 30
+      value: 11
       inSlope: .00999999978
       outSlope: .00999999978
       tangentMode: 0
