@@ -31,6 +31,8 @@ public class Touch : MonoBehaviour {
 
 	private bool lastMouseDown = false;
 	private int aniset = 0;
+	private static int headTimes = 0;
+	private static int backTimes = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -103,12 +105,14 @@ public class Touch : MonoBehaviour {
 					aniset = 0;
 					if(string.Compare(animationName, "TouchHead") == 0)
 					{
-						if(Random.Range(1,100) <= 70)
+						headTimes ++;
+						if((headTimes % 3) <= 1)
 							aniset = 1;
 					}
 					else
 					{
-						if(Random.Range(1,100) <= 30)
+						backTimes ++;
+						if((backTimes % 3) == 0)
 							aniset = 1;
 					}
 	
