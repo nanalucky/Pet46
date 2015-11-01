@@ -30,6 +30,7 @@ public class Touch : MonoBehaviour {
 	private float lastPositionTime;
 
 	private bool lastMouseDown = false;
+	private int aniset = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -99,20 +100,49 @@ public class Touch : MonoBehaviour {
 				if(Time.time - timeInTouch >= timeIntoEnjoy)
 				{
 					state = State.Enjoy;
-					goDog.GetComponent<Animator>().SetBool("toempty", false);
+					aniset = 0;
 					if(string.Compare(animationName, "TouchHead") == 0)
 					{
-						if(goDog.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SitIdle"))
-							goDog.GetComponent<Animator>().Play("TouchHeadHeadForSit", 1);
-						else
-							goDog.GetComponent<Animator>().Play ("TouchHeadHead", 1);
+						if(Random.Range(1,100) <= 70)
+							aniset = 1;
 					}
 					else
 					{
-						if(goDog.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SitIdle"))
-							goDog.GetComponent<Animator>().Play ("TouchBackHeadForSit", 1);
+						if(Random.Range(1,100) <= 30)
+							aniset = 1;
+					}
+	
+					switch(aniset)
+					{
+					case 0:
+						goDog.GetComponent<Animator>().SetBool("toempty", false);
+						if(string.Compare(animationName, "TouchHead") == 0)
+						{
+							goDog.GetComponent<Animator>().Play ("TouchHeadHead2", 1);
+							goDog.GetComponent<Animator>().Play("TongueOut", 3);
+						}
 						else
-							goDog.GetComponent<Animator>().Play ("TouchBackHead", 1);
+						{
+							goDog.GetComponent<Animator>().Play ("TouchBackHead2", 1);
+						}
+						break;
+					case 1:
+						goDog.GetComponent<Animator>().SetBool("toempty", false);
+						if(string.Compare(animationName, "TouchHead") == 0)
+						{
+							if(goDog.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SitIdle"))
+								goDog.GetComponent<Animator>().Play("TouchHeadHeadForSit", 1);
+							else
+								goDog.GetComponent<Animator>().Play ("TouchHeadHead", 1);
+						}
+						else
+						{
+							if(goDog.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SitIdle"))
+								goDog.GetComponent<Animator>().Play ("TouchBackHeadForSit", 1);
+							else
+								goDog.GetComponent<Animator>().Play ("TouchBackHead", 1);
+						}
+						break;
 					}
 				}
 			}
@@ -152,15 +182,29 @@ public class Touch : MonoBehaviour {
 				if(Time.time - timeNotInTouch > timeOutEnjoy)
 				{
 					state = State.None;
-					if(string.Compare(animationName, "TouchHead") == 0)
+					switch(aniset)
 					{
-						//goDog.GetComponent<Animator>().Play("empty", 1);
-						goDog.GetComponent<Animator>().SetBool("toempty", true);
-					}
-					else
-					{
-						//goDog.GetComponent<Animator>().Play ("empty", 1);
-						goDog.GetComponent<Animator>().SetBool("toempty", true);
+					case 0:
+						if(string.Compare(animationName, "TouchHead") == 0)
+						{
+							goDog.GetComponent<Animator>().SetBool("toempty", true);
+							goDog.GetComponent<Animator>().Play("TongueIn", 3);
+						}
+						else
+						{
+							goDog.GetComponent<Animator>().SetBool("toempty", true);
+						}
+						break;
+					case 1:
+						if(string.Compare(animationName, "TouchHead") == 0)
+						{
+							goDog.GetComponent<Animator>().SetBool("toempty", true);
+						}
+						else
+						{
+							goDog.GetComponent<Animator>().SetBool("toempty", true);
+						}
+						break;
 					}
 				}
 			}
