@@ -803,6 +803,26 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
+--- !u!1101 &110186912
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110202098}
+  m_DstState: {fileID: 110231464}
+  m_TransitionDuration: 1.49999714
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: 0
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1101 &110187420
 Transition:
   serializedVersion: 2
@@ -835,6 +855,26 @@ Transition:
     m_ConditionEvent: toempty
     m_EventTreshold: 0
     m_ExitTime: .612316489
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110188190
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110205352}
+  m_DstState: {fileID: 110299750}
+  m_TransitionDuration: 1.49999714
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: 0
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -975,6 +1015,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110202098
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TongueOut2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400002, guid: d62bc16a835043d4cb4433aa4a2b96be, type: 3}
+  m_ParentStateMachine: {fileID: 110729874}
+  m_Position: {x: 252, y: 132, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110202104
 State:
   m_ObjectHideFlags: 3
@@ -1015,6 +1070,21 @@ State:
   m_Motions: []
   m_ParentStateMachine: {fileID: 0}
   m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110205352
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TongueIn2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400006, guid: d62bc16a835043d4cb4433aa4a2b96be, type: 3}
+  m_ParentStateMachine: {fileID: 110729874}
+  m_Position: {x: 480, y: 24, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -1341,6 +1411,21 @@ State:
   - {fileID: 7400044, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
   m_ParentStateMachine: {fileID: 110792158}
   m_Position: {x: 768, y: 96, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110231464
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TongueIdle2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400004, guid: d62bc16a835043d4cb4433aa4a2b96be, type: 3}
+  m_ParentStateMachine: {fileID: 110729874}
+  m_Position: {x: 480, y: 132, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -2163,9 +2248,20 @@ StateMachine:
   - {fileID: 110211116}
   - {fileID: 110285618}
   - {fileID: 110217086}
+  - {fileID: 110205352}
+  - {fileID: 110202098}
+  - {fileID: 110231464}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
+    data:
+      first: {fileID: 110202098}
+      second:
+      - {fileID: 110186912}
+    data:
+      first: {fileID: 110205352}
+      second:
+      - {fileID: 110188190}
     data:
       first: {fileID: 110299750}
       second: []
