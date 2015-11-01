@@ -740,7 +740,7 @@ ModelImporter:
       events:
       - time: .160493568
         functionName: PlayAudioEffect
-        data: walk,0.005
+        data: walk,0.1
         objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
           type: 3}
         floatParameter: 0
@@ -748,7 +748,7 @@ ModelImporter:
         messageOptions: 0
       - time: .555555284
         functionName: PlayAudioEffect
-        data: walk,0.005
+        data: walk,0.1
         objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
           type: 3}
         floatParameter: 0
@@ -6434,7 +6434,7 @@ ModelImporter:
       events:
       - time: .276542932
         functionName: PlayAudioEffect
-        data: walk,0.005
+        data: walk,0.08
         objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
           type: 3}
         floatParameter: 0
@@ -6442,7 +6442,7 @@ ModelImporter:
         messageOptions: 0
       - time: .790123403
         functionName: PlayAudioEffect
-        data: walk,0.005
+        data: walk,0.08
         objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
           type: 3}
         floatParameter: 0

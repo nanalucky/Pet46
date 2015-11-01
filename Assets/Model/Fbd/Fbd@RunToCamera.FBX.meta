@@ -188,7 +188,7 @@ ModelImporter:
       events:
       - time: .157746434
         functionName: PlayAudioEffect
-        data: walk,0.005
+        data: walk,0.09
         objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
           type: 3}
         floatParameter: 0
@@ -196,7 +196,7 @@ ModelImporter:
         messageOptions: 0
       - time: .650726259
         functionName: PlayAudioEffect
-        data: walk,0.005
+        data: walk,0.09
         objectReferenceParameter: {fileID: 11500000, guid: e37c0cbc92f862b46bf55ad46015c647,
           type: 3}
         floatParameter: 0
