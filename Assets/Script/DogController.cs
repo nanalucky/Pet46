@@ -17,6 +17,7 @@ public class DogController : MonoBehaviour {
 	public Button btnOrder;
 	public Button[] btnRecords;
 	public Button[] btnPlays;
+	public Button btnVolume;
 
 	private float lookatBodyWeight;
 	private float lookatHeadWeight;
