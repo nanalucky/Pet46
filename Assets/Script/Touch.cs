@@ -99,6 +99,7 @@ public class Touch : MonoBehaviour {
 				if(Time.time - timeInTouch >= timeIntoEnjoy)
 				{
 					state = State.Enjoy;
+					goDog.GetComponent<Animator>().SetBool("toempty", false);
 					if(string.Compare(animationName, "TouchHead") == 0)
 					{
 						if(goDog.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SitIdle"))
@@ -153,11 +154,13 @@ public class Touch : MonoBehaviour {
 					state = State.None;
 					if(string.Compare(animationName, "TouchHead") == 0)
 					{
-						goDog.GetComponent<Animator>().Play("empty", 1);
+						//goDog.GetComponent<Animator>().Play("empty", 1);
+						goDog.GetComponent<Animator>().SetBool("toempty", true);
 					}
 					else
 					{
-						goDog.GetComponent<Animator>().Play ("empty", 1);
+						//goDog.GetComponent<Animator>().Play ("empty", 1);
+						goDog.GetComponent<Animator>().SetBool("toempty", true);
 					}
 				}
 			}
