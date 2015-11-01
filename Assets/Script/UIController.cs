@@ -77,10 +77,10 @@ public class UIController : MonoBehaviour {
 
 	public void OnClickVolume()
 	{
-		Camera.main.GetComponent<AudioSource> ().enabled = !Camera.main.GetComponent<AudioSource> ().enabled;
+		Camera.main.GetComponent<AudioSource> ().mute = !Camera.main.GetComponent<AudioSource> ().mute; 
 		//GameObject.FindGameObjectWithTag ("dog").GetComponent<AudioSource> ().enabled = !GameObject.FindGameObjectWithTag ("dog").GetComponent<AudioSource> ().enabled;
 		Button btn = GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().btnVolume.GetComponent<Button> ();
-		if(Camera.main.GetComponent<AudioSource>().enabled)
+		if(!Camera.main.GetComponent<AudioSource>().mute)
 			btn.image.sprite = Resources.Load<Sprite>("UI/volume");
 		else
 			btn.image.sprite = Resources.Load<Sprite>("UI/mute");
