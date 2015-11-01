@@ -3617,9 +3617,9 @@ Light:
   m_Shadows:
     m_Type: 2
     m_Resolution: 3
-    m_Strength: .389999986
+    m_Strength: .170000002
     m_Bias: 0
-    m_Softness: 3.6099999
+    m_Softness: 3.1400001
     m_SoftnessFade: .100000001
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
