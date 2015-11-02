@@ -2,7 +2,7 @@ Shader "EyeAdvanced/EyeAdvanced_LOD0" {
 Properties {
 
 	_pupilSize("Pupil Dilation", Range(0.0,1.0)) = 0.7
-	_irisSize("Eye Iris Size", Range(1.5,5.0)) = 2.15
+	_irisSize("Eye Iris Size", Range(1.0,5.0)) = 2.15
 	_parallax("Parallax Effect", Range(0.0,0.05)) = 0.025
 	_scleraSize("Eye Sclera Size", Range(0.85,2.2)) = 1.0
 
