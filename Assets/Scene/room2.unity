@@ -6163,6 +6163,8 @@ MonoBehaviour:
   - {fileID: 1481353426}
   - {fileID: 1978880847}
   btnVolume: {fileID: 360326036}
+  volumeEnabled: 1
+  volumeMute: 0
   lookats:
   - {x: 7, y: 0, z: 5}
   - {x: 5, y: 0, z: 6}

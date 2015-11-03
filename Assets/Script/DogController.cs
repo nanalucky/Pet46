@@ -25,6 +25,8 @@ public class DogController : MonoBehaviour {
 
 	private Animator animator;
 
+	[HideInInspector] public bool volumeEnabled = true;
+	[HideInInspector] public bool volumeMute = false;
 	public Vector3[] lookats = new Vector3[]{new Vector3(7f,0f,5f),new Vector3(5f,0f,6f),new Vector3(3.5f,0f,4f),new Vector3(5f,0f,4f)};
 
 	// Use this for initialization
@@ -183,7 +185,6 @@ public class DogController : MonoBehaviour {
 	{
 		Time.fixedDeltaTime = 0.02f;
 		GetComponent<StartIdle> ().enabled = false;
-		MuteMusicAndEffect (false);
 
 		// robot
 		Destroy(GameObject.FindGameObjectWithTag("RobotScript"));
@@ -214,32 +215,35 @@ public class DogController : MonoBehaviour {
 	{
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/RobotScript"));
+		EnableMusicAndEffect (true);
 	}
 
 	public void ToInteract()
 	{
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterInteract"));
+		EnableMusicAndEffect (true);
 	}
 
 	public void ToBall()
 	{
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterBall"));
+		EnableMusicAndEffect (true);
 	}
 
 	public void ToExercise()
 	{
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterExercise"));
-		MuteMusicAndEffect (true);
+		EnableMusicAndEffect (false);
 	}
 
 	public void ToOrder()
 	{
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterOrder"));
-		MuteMusicAndEffect (true);
+		EnableMusicAndEffect (false);
 	}
 
 	public void PlayAudioEffect(string clipname)
@@ -253,9 +257,20 @@ public class DogController : MonoBehaviour {
 		audioSource.PlayOneShot (audioClip, volume);
 	}
 
-	public void MuteMusicAndEffect(bool mute)
+	public void EnableMusicAndEffect(bool enable)
 	{
-		Camera.main.GetComponent<AudioSource>().mute = mute;
-		gameObject.GetComponent<AudioSource> ().mute = mute;
+		volumeEnabled = enable;
+		btnVolume.interactable = enable;
+
+		if(enable)
+		{
+			Camera.main.GetComponent<AudioSource>().mute = volumeMute;
+			gameObject.GetComponent<AudioSource> ().mute = volumeMute;
+		}
+		else
+		{
+			Camera.main.GetComponent<AudioSource>().mute = true;
+			gameObject.GetComponent<AudioSource> ().mute = true;
+		}
 	}
 }
