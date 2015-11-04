@@ -6176,7 +6176,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 442346072}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 776adaaacdc5c4e8ab0395120a6e972b, type: 3}
   m_Name: 
@@ -6217,11 +6217,11 @@ MonoBehaviour:
       length: 0
       axis: {x: -.945638657, y: .325219899, z: -1.74750681e-07}
     bodyWeight: .5
-    headWeight: 0
-    eyesWeight: 0
+    headWeight: .5
+    eyesWeight: .5
     clampWeight: .5
     clampWeightHead: .5
-    clampWeightEyes: .5
+    clampWeightEyes: .699999988
     clampSmoothing: 2
     spineWeightCurve:
       serializedVersion: 2
