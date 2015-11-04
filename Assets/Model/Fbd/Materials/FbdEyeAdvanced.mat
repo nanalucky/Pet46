@@ -52,14 +52,14 @@ Material:
         first:
           name: _SpecularCube
         second:
-          m_Texture: {fileID: 8900000, guid: 7b56808b593c76a41aa7491c7d8f5002, type: 3}
+          m_Texture: {fileID: 8900000, guid: 485c648ca0bfe054fb20753b2523f7f3, type: 2}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _DiffuseCube
         second:
-          m_Texture: {fileID: 8900000, guid: 81c5d3ca8d6bbae4387ed43e6ada115a, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
