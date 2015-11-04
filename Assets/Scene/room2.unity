@@ -3675,7 +3675,7 @@ Light:
   m_Shadows:
     m_Type: 2
     m_Resolution: 3
-    m_Strength: .219999999
+    m_Strength: .294
     m_Bias: 0
     m_Softness: 3.1400001
     m_SoftnessFade: .100000001
