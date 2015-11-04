@@ -24,14 +24,14 @@ Material:
         first:
           name: _IrisColorTex
         second:
-          m_Texture: {fileID: 2800000, guid: 28b7349d5205d6a4e9c65f0db1c5b3ac, type: 3}
+          m_Texture: {fileID: 2800000, guid: 04d62de4e265d374792affc0e19376b3, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _IrisTex
         second:
-          m_Texture: {fileID: 2800000, guid: e50f7dbfcbd8eb74488a7c872a1a7d42, type: 3}
+          m_Texture: {fileID: 2800000, guid: c6921995ffad36c4a85afdb740056d14, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -66,19 +66,19 @@ Material:
       data:
         first:
           name: _pupilSize
-        second: .839285731
+        second: .875
       data:
         first:
           name: _irisSize
-        second: 1.21428585
+        second: 1.21428573
       data:
         first:
           name: _parallax
-        second: .0017857143
+        second: 0
       data:
         first:
           name: _scleraSize
-        second: .922321439
+        second: .946428597
       data:
         first:
           name: _brightShift
@@ -86,7 +86,7 @@ Material:
       data:
         first:
           name: _smoothness
-        second: .571428537
+        second: .660714269
     m_Colors:
       data:
         first:
