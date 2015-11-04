@@ -66,19 +66,19 @@ Material:
       data:
         first:
           name: _pupilSize
-        second: .75
+        second: .839285731
       data:
         first:
           name: _irisSize
-        second: 1.21428573
+        second: 1.21428585
       data:
         first:
           name: _parallax
-        second: 0
+        second: .0017857143
       data:
         first:
           name: _scleraSize
-        second: .850000024
+        second: .922321439
       data:
         first:
           name: _brightShift
