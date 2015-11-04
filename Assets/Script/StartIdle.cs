@@ -10,6 +10,7 @@ public class StartIdle : MonoBehaviour {
 
 	private float endTime;
 	private int count;
+	private bool firstFrame = true;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,12 @@ public class StartIdle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(firstFrame)
+		{
+			firstFrame = false;
+			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().EnableLookatIK(false);
+		}
+
 		if(endTime > 0)
 		{
 			if(Time.time > endTime)

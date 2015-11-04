@@ -7,6 +7,9 @@ public class Interact : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		GameObject goLookCamera = Instantiate (Resources.Load ("Prefabs/LookCamera")) as GameObject;
+		goLookCamera.transform.parent = gameObject.transform;
+
 		GameObject goHead = Instantiate (Resources.Load ("Prefabs/TouchHead")) as GameObject;
 		goHead.transform.parent = gameObject.transform;
 
@@ -27,9 +30,6 @@ public class Interact : MonoBehaviour {
 
 		GameObject goRightEar = Instantiate (Resources.Load ("Prefabs/GraspRightEar")) as GameObject;
 		goRightEar.transform.parent = gameObject.transform;
-
-		GameObject goLookCamera = Instantiate (Resources.Load ("Prefabs/LookCamera")) as GameObject;
-		goLookCamera.transform.parent = gameObject.transform;
 
 		GameObject goGesture = Instantiate (Resources.Load ("Prefabs/Gesture")) as GameObject;
 		goGesture.transform.parent = gameObject.transform;
