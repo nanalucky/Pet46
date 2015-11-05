@@ -66,11 +66,11 @@ Material:
       data:
         first:
           name: _pupilSize
-        second: .875
+        second: .839285731
       data:
         first:
           name: _irisSize
-        second: 1.21428573
+        second: 1.21428585
       data:
         first:
           name: _parallax
@@ -78,7 +78,7 @@ Material:
       data:
         first:
           name: _scleraSize
-        second: .946428597
+        second: .850000024
       data:
         first:
           name: _brightShift
@@ -86,7 +86,7 @@ Material:
       data:
         first:
           name: _smoothness
-        second: .660714269
+        second: .964285672
     m_Colors:
       data:
         first:
@@ -99,12 +99,12 @@ Material:
       data:
         first:
           name: _irisColor
-        second: {r: 0, g: 0, b: 0, a: 0}
+        second: {r: .264705896, g: .198529422, b: .198529422, a: 0}
       data:
         first:
           name: _illumColor
-        second: {r: 0, g: 0, b: 0, a: 0}
+        second: {r: .338235319, g: .295955896, b: .295955896, a: 0}
       data:
         first:
           name: _subDermColor
-        second: {r: 0, g: 0, b: 0, a: 0}
+        second: {r: .45588237, g: .419009537, b: .419009537, a: 0}

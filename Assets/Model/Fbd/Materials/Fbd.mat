@@ -31,23 +31,23 @@ Material:
       data:
         first:
           name: _Shininess
-        second: 4.77999687
+        second: 5.16207886
       data:
         first:
           name: _FurLength
-        second: .00482500019
+        second: .00649999967
       data:
         first:
           name: _EdgeFade
-        second: .714285731
+        second: .732142806
       data:
         first:
           name: _HairHardness
-        second: .919642866
+        second: .839285731
       data:
         first:
           name: _HairThinness
-        second: 5.183393
+        second: 6.43214321
       data:
         first:
           name: _HairShading
@@ -55,7 +55,7 @@ Material:
       data:
         first:
           name: _SkinAlpha
-        second: .5
+        second: .517857134
     m_Colors:
       data:
         first:
