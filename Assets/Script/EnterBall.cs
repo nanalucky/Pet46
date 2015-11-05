@@ -7,9 +7,9 @@ public class EnterBall : EnterInteract {
 	void Start () {
 		GameObject goDog = GameObject.FindGameObjectWithTag("dog");
 		goDog.GetComponent<Animator> ().Play ("Stand");
-		Vector3 direction = Camera.main.transform.position - goDog.transform.position;
-		if (!Physics.Raycast (goDog.transform.position, direction.normalized, direction.magnitude)
-		    && (Camera.main.transform.position - goDog.transform.position).magnitude > 1.0f) {
+		Vector3 direction = Camera.main.transform.position - goDog.GetComponent<DogController>().GetDogPivot();
+		if (!Physics.Raycast (goDog.GetComponent<DogController>().GetDogPivot(), direction.normalized, direction.magnitude)
+		    && (Camera.main.transform.position - goDog.GetComponent<DogController>().GetDogPivot()).magnitude > 1.0f) {
 			ToBall();
 			return;
 		}

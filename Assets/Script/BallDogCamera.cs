@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BallDogCamera : MonoBehaviour {
 
-	public float minDistance = 1.0f;
+	public float minDistance = 0.8f;
 	public float maxDistance = 3.0f;
 	public float speedEulerX = 1.0f;
 
@@ -25,7 +25,7 @@ public class BallDogCamera : MonoBehaviour {
 		if (firstFrame) {
 			firstFrame = false;
 
-			Plane plane = new Plane( new Vector3(0, 1, 0), go.transform.position);
+			Plane plane = new Plane( new Vector3(0, 1, 0), go.GetComponent<DogController>().GetDogPivot());
 			Vector3 direction = mainCamera.transform.rotation * (new Vector3(0,0,1));
 			Ray ray = new Ray(mainCamera.transform.position, direction);
 			float rayDist;
@@ -36,8 +36,8 @@ public class BallDogCamera : MonoBehaviour {
 		}
 
 		bool inMove = false;
-		if (lastLookat != go.transform.position) {
-			lastLookat = go.transform.position;
+		if (lastLookat != go.GetComponent<DogController>().GetDogPivot()) {
+			lastLookat = go.GetComponent<DogController>().GetDogPivot();
 			inMove = true;
 		}
 
@@ -48,14 +48,14 @@ public class BallDogCamera : MonoBehaviour {
 			distance = minDistance;
 			float eulerX = Mathf.Rad2Deg * Mathf.Asin(cameraHeight / distance);
 			//euler.x = Mathf.MoveTowardsAngle(mainCamera.transform.rotation.eulerAngles.x, eulerX, speedEulerX * Time.deltaTime);
-			euler.x = eulerX;
+			//euler.x = eulerX;
 			distance = cameraHeight / Mathf.Sin(Mathf.Deg2Rad * euler.x);
 		}
 
 		// check collision
 		RaycastHit hit;
 		Vector3 direction1 = Quaternion.Euler(euler) * (new Vector3(0,0,-1));
-		if (Physics.Raycast(go.transform.position, direction1, out hit, distance, 8))
+		if (Physics.Raycast(go.GetComponent<DogController>().GetDogPivot(), direction1, out hit, distance, 8))
 		{
 			inMove = true;
 			distance = hit.distance;
@@ -69,7 +69,7 @@ public class BallDogCamera : MonoBehaviour {
 			if(euler.IsValid())
 			{
 				mainCamera.transform.rotation = Quaternion.Euler(euler);
-				mainCamera.transform.position = go.transform.position + mainCamera.transform.rotation * (new Vector3(0, 0, -distance));
+				mainCamera.transform.position = go.GetComponent<DogController>().GetDogPivot() + mainCamera.transform.rotation * (new Vector3(0, 0, -distance));
 			}
 		}
 	}

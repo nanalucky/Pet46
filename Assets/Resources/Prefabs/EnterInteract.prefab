@@ -39,12 +39,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64762d22ecdbf994f918f4cf7553fe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookat: {x: 0, y: 0, z: 3.5}
+  lookat: {x: 0, y: 0, z: 0}
   lookatSmooth: .5
-  distance: 1.14999998
+  distance: .800000012
   distanceSmooth: .5
   eulerYSmooth: .5
-  eulerX: 30
+  eulerX: 15
   eulerXSmooth: .5
   turnEulerYSpeed: 480
   stayTime: 1

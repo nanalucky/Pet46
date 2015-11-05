@@ -273,4 +273,9 @@ public class DogController : MonoBehaviour {
 			gameObject.GetComponent<AudioSource> ().mute = true;
 		}
 	}
+
+	public Vector3 GetDogPivot()
+	{
+		return transform.FindChild("pivot").position;
+	}
 }

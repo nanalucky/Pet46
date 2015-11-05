@@ -18,7 +18,7 @@ public class RotateCamera : MonoBehaviour {
 	void Update () {
 		if (Input.GetMouseButton(1))
 		{
-			Plane plane = new Plane( new Vector3(0, 1, 0), go.transform.position);
+			Plane plane = new Plane( new Vector3(0, 1, 0), go.GetComponent<DogController>().GetDogPivot());
 			Vector3 direction = Camera.main.transform.rotation * (new Vector3(0,0,1));
 			Ray ray = new Ray(Camera.main.transform.position, direction);
 			float rayDist;

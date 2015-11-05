@@ -39,6 +39,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b8a35a0cad2f041979bed6f2ea1c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookat: {x: 0, y: 0, z: 0}
+  lookatSmooth: .5
+  distance: .800000012
+  distanceSmooth: .5
+  eulerYSmooth: .5
+  eulerX: 15
+  eulerXSmooth: .5
+  turnEulerYSpeed: 480
+  stayTime: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

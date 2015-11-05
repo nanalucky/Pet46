@@ -41,7 +41,7 @@ public class EnterInteract : MonoBehaviour {
 
 			// camera
 			cameraMove = true;
-			Plane plane = new Plane( new Vector3(0, 1, 0), go.transform.position);
+			Plane plane = new Plane( new Vector3(0, 1, 0), go.GetComponent<DogController>().GetDogPivot());
 			Vector3 direction = mainCamera.transform.rotation * (new Vector3(0,0,1));
 			Ray ray = new Ray(mainCamera.transform.position, direction);
 			float rayDist;
@@ -56,17 +56,29 @@ public class EnterInteract : MonoBehaviour {
 				dstEulerY = go.transform.rotation.eulerAngles.y + 180;
 
 			Vector3 euler = new Vector3 (controller.eulerX, dstEulerY, mainCamera.transform.rotation.eulerAngles.z);
-			Vector3 cameraPos = controller.lookat + Quaternion.Euler (euler) * new Vector3(0, 0, -controller.distance);
-			dstDistance = (go.transform.position - cameraPos).magnitude;
-			dstLookat = go.transform.position;
-			dstEulerX = Quaternion.LookRotation ((go.transform.position - cameraPos).normalized).eulerAngles.x;
+
+			Quaternion oldRotation = go.transform.rotation;
+			Vector3 dogDirection = (controller.lookat - go.transform.position).normalized;
+			float dogEulerY = 0;
+			if (dogDirection != Vector3.zero)
+				dogEulerY = Quaternion.LookRotation (dogDirection).eulerAngles.y;
+			else
+				dogEulerY = go.transform.rotation.eulerAngles.y;
+			go.transform.rotation = Quaternion.Euler (oldRotation.eulerAngles.x, dogEulerY, oldRotation.eulerAngles.z);
+			Vector3 pivot = go.GetComponent<DogController> ().GetDogPivot () - go.transform.position;
+			Vector3 cameraPos = controller.lookat + pivot + Quaternion.Euler (euler) * new Vector3(0, 0, -controller.distance);
+			go.transform.rotation = oldRotation;
+
+			dstDistance = (go.GetComponent<DogController>().GetDogPivot() - cameraPos).magnitude;
+			dstLookat = go.GetComponent<DogController>().GetDogPivot();
+			dstEulerX = Quaternion.LookRotation ((go.GetComponent<DogController>().GetDogPivot() - cameraPos).normalized).eulerAngles.x;
 		}
 
 		public override void Update()
 		{
 			if (cameraMove == true) 
 			{
-				Vector3 direction = (dstLookat - go.transform.position).normalized;
+				Vector3 direction = (dstLookat - go.GetComponent<DogController>().GetDogPivot()).normalized;
 				float curLookatDistance = Mathf.SmoothDamp((curLookat - dstLookat).magnitude,
 				                                           0.0f, ref velLookat, controller.lookatSmooth);
 				curLookat = dstLookat - direction * curLookatDistance;
@@ -265,7 +277,7 @@ public class EnterInteract : MonoBehaviour {
 				go.transform.position = controller.lookat;
 			}
 
-			mainCamera.transform.rotation = Quaternion.LookRotation ((go.transform.position - mainCamera.transform.position).normalized);
+			mainCamera.transform.rotation = Quaternion.LookRotation ((go.GetComponent<DogController>().GetDogPivot() - mainCamera.transform.position).normalized);
 		}
 
 		public override bool IsFinished()
@@ -354,10 +366,10 @@ public class EnterInteract : MonoBehaviour {
 	public Vector3 lookat;
 
 	public float lookatSmooth = 0.5f;
-	public float distance = 1.0f;
+	public float distance = 0.8f;
 	public float distanceSmooth = 0.5f;
 	public float eulerYSmooth = 0.5f;
-	public float eulerX = 30.0f;
+	public float eulerX = 15.0f;
 	public float eulerXSmooth = 0.5f;
 
 	public float turnEulerYSpeed = 480.0f;

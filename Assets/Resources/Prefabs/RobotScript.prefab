@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061667a5d2966254f973cd6663b6d505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 1
+  minDistance: .800000012
   maxDistance: 3
   speedEulerX: 1
 --- !u!114 &11408868
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  minDistance: 1
+  minDistance: .800000012
   maxDistance: 2
   distanceSmooth: .5
   lookatSmooth: .5
