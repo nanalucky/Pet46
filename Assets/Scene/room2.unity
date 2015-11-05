@@ -6220,7 +6220,7 @@ MonoBehaviour:
     headWeight: .5
     eyesWeight: .5
     clampWeight: .5
-    clampWeightHead: .5
+    clampWeightHead: .800000012
     clampWeightEyes: .699999988
     clampSmoothing: 2
     spineWeightCurve:
