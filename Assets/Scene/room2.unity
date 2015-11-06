@@ -6250,7 +6250,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
   m_Controller: {fileID: 9100000, guid: 285f52d88cbab454daa3b89cadaa8290, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
@@ -8575,7 +8575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &632010054
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11837,6 +11837,10 @@ Prefab:
     - target: {fileID: 400096, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e6b1253a47841a46a16accac9850bdd, type: 3}
@@ -20364,6 +20368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67862dce557b8dc4eaeae5a2ab919076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 632010057}
 --- !u!1 &1795687176
 GameObject:
   m_ObjectHideFlags: 0

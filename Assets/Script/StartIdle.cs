@@ -23,7 +23,7 @@ public class StartIdle : MonoBehaviour {
 		if(firstFrame)
 		{
 			firstFrame = false;
-			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().EnableLookatIK(false);
+			gameObject.GetComponent<DogController>().EnableLookatIK(false);
 		}
 
 		if(endTime > 0)

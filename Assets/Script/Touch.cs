@@ -128,6 +128,7 @@ public class Touch : MonoBehaviour {
 						else
 						{
 							goDog.GetComponent<Animator>().CrossFade ("TouchBackHead2", 0.25f, 1);
+							goDog.GetComponent<Animator>().Play ("EyeClose", 2);
 						}
 						break;
 					case 1:
@@ -197,6 +198,7 @@ public class Touch : MonoBehaviour {
 						else
 						{
 							goDog.GetComponent<Animator>().SetBool("toempty", true);
+							goDog.GetComponent<Animator>().Play ("EyeOpen", 2);
 						}
 						break;
 					case 1:

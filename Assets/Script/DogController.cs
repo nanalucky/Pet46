@@ -46,7 +46,7 @@ public class DogController : MonoBehaviour {
 
 	public void EnableLookatIK(bool enabled)
 	{
-		LookAtIK lookatik = GameObject.FindGameObjectWithTag ("dog").GetComponent<LookAtIK> ();
+		LookAtIK lookatik = gameObject.GetComponent<LookAtIK> ();
 		if (enabled) {
 			lookatik.enabled = true;
 			//Debug.LogWarning(string.Format("lookatid enable:{0}", Time.time));
@@ -63,13 +63,12 @@ public class DogController : MonoBehaviour {
 	{
 		while (n > 0)
 		{
-			var anim = GameObject.FindGameObjectWithTag ("dog").GetComponent<Animator> ();
-			if(anim.GetCurrentAnimatorStateInfo(2).IsName("Blink")){
+			if(animator.GetCurrentAnimatorStateInfo(2).IsName("Blink")){
 				yield return new WaitForSeconds(0);
 			} else {
 				//Debug.LogWarning(string.Format("Blink:{0}", Time.time));
-				anim.Play ("Blink", 2);
-				anim.Play ("Blink", 5);
+				animator.Play ("Blink", 2);
+				animator.Play ("Blink", 5);
 				--n;
 				yield return new WaitForSeconds(time);
 			}
@@ -78,11 +77,10 @@ public class DogController : MonoBehaviour {
 
 	public Vector3 ChooseLookat()
 	{
-		var goDog = GameObject.FindGameObjectWithTag ("dog");
 		Vector3 nearest = lookats [0];
-		float distance = (nearest - goDog.transform.position).magnitude;
+		float distance = (nearest - transform.position).magnitude;
 		foreach (Vector3 pt in lookats) {
-			float dis = (pt - goDog.transform.position).magnitude;
+			float dis = (pt - transform.position).magnitude;
 			if(dis > distance)
 			{
 				distance = dis;
