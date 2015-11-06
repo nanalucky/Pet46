@@ -49,7 +49,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108864}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 061667a5d2966254f973cd6663b6d505, type: 3}
   m_Name: 
@@ -63,20 +63,19 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108864}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5bf5b554837c8a4d8f5578876ea8893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  minDistance: .800000012
-  maxDistance: 2
-  distanceSmooth: .5
-  lookatSmooth: .5
-  X_Smooth: 1
-  Y_Smooth: .5
   eulerX: 13.8000002
-  areaBorder: .200000003
+  eulerXSpeed: 50
+  distances:
+  - 1
+  - 2
+  distanceSpeed: 2
+  lookatSpeed: 2
+  timeDelta: 60
 --- !u!114 &11408870
 MonoBehaviour:
   m_ObjectHideFlags: 1
