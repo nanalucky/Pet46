@@ -78,7 +78,7 @@ public class EnterInteract : MonoBehaviour {
 		{
 			if (cameraMove == true) 
 			{
-				Vector3 direction = (dstLookat - go.GetComponent<DogController>().GetDogPivot()).normalized;
+				Vector3 direction = (dstLookat - curLookat).normalized;
 				float curLookatDistance = Mathf.SmoothDamp((curLookat - dstLookat).magnitude,
 				                                           0.0f, ref velLookat, controller.lookatSmooth);
 				curLookat = dstLookat - direction * curLookatDistance;
@@ -94,12 +94,13 @@ public class EnterInteract : MonoBehaviour {
 				mainCamera.transform.position = curLookat + mainCamera.transform.rotation * (new Vector3(0, 0, -curDistance));
 
 				curLookatDistance = (curLookat - dstLookat).magnitude;
-				if (curLookatDistance < 0.1f 
+				if (curLookatDistance < 0.01f 
 				    && Mathf.Abs(euler.y - dstEulerY) < 0.1f 
 				    && Mathf.Abs(euler.x - dstEulerX) < 0.1f
-				    && Mathf.Abs(curDistance - dstDistance) < 0.1f)
+				    && Mathf.Abs(curDistance - dstDistance) < 0.01f)
 				{
 					cameraMove = false;
+					mainCamera.transform.position = dstLookat + mainCamera.transform.rotation * (new Vector3(0, 0, -dstDistance));
 				}
 			}
 		}
@@ -308,7 +309,7 @@ public class EnterInteract : MonoBehaviour {
 		{
 			controller = ctrl;
 			go = GameObject.FindGameObjectWithTag ("dog");
-			go.GetComponent<Animator> ().Play ("SitDown");
+			go.GetComponent<Animator> ().CrossFade ("SitDown", 0.25f);
 		}
 
 		public override bool IsFinished()
