@@ -114,19 +114,19 @@ public class DogController : MonoBehaviour {
 	public void SitDown()
 	{
 		if (IsStand ()) {
-			animator.Play ("SitDown");
+			animator.CrossFade ("SitDown", 0.25f);
 		}
 	}
 	
 	public void FallDown()
 	{
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SitIdle")) {
-			animator.Play ("SitToFall");
+			animator.CrossFade ("SitToFall", 0.25f);
 		}
 		else
 		{
 			if (IsStand ()) {
-				animator.Play ("StandToFall");
+				animator.CrossFade ("StandToFall", 0.25f);
 			}
 		}
 	}
@@ -134,20 +134,20 @@ public class DogController : MonoBehaviour {
 	public void StandUp()
 	{
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("SitIdle")) {
-			animator.Play ("SitToStand");
+			animator.CrossFade ("SitToStand", 0.25f);
 		}
 		else if (animator.GetCurrentAnimatorStateInfo (0).IsName ("FallIdle")) {
-			animator.Play ("FallToSit");
+			animator.CrossFade ("FallToSit", 0.25f);
 		}
 		else if(animator.GetCurrentAnimatorStateInfo(0).IsName("SleepIdle")) {
-			animator.Play("Wake");
+			animator.CrossFade("Wake", 0.25f);
 		}
 	}
 	
 	public void RightRawUp()
 	{
 		if (IsStand ()) {
-			animator.Play("RightRawUp");
+			animator.CrossFade("RightRawUp", 0.25f);
 		}else{
             StandUp();
             StartCoroutine("PlayRightRawUp");
@@ -159,13 +159,13 @@ public class DogController : MonoBehaviour {
         {
 			yield return null;
 		}
-        animator.Play("RightRawUp");
+        animator.CrossFade("RightRawUp", 0.25f);
     }
 	
 	public void LeftRawUp()
 	{
 		if (IsStand ()) {
-			animator.Play("LeftRawUp");
+			animator.CrossFade("LeftRawUp", 0.25f);
 		}else{
             StandUp();
             StartCoroutine("PlayLeftRawUp");
@@ -178,7 +178,7 @@ public class DogController : MonoBehaviour {
 		{
 			yield return null;
 		}
-		animator.Play("LeftRawUp");
+		animator.CrossFade("LeftRawUp", 0.25f);
     }
 
 	void ClearAll()

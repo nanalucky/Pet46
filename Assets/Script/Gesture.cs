@@ -179,7 +179,7 @@ public class Gesture : MonoBehaviour {
 				if(animator.GetCurrentAnimatorStateInfo(0).IsName("RightRawUp") 
 				   || animator.GetCurrentAnimatorStateInfo(0).IsName("LeftRawUp"))
 				{
-					animator.Play("Stand");
+					animator.CrossFade("Stand", 0.25f);
 				}
 			}
 		}

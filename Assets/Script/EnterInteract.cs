@@ -215,7 +215,7 @@ public class EnterInteract : MonoBehaviour {
 			controller = ctrl;
 			go = GameObject.FindGameObjectWithTag ("dog");
 			if(!go.GetComponent<DogController>().IsStand())
-				go.GetComponent<Animator> ().Play ("Stand");
+				go.GetComponent<Animator> ().CrossFade ("Stand", 0.25f);
 			endTime = Time.time + ctrl.stayTime;
 		}
 
@@ -261,7 +261,7 @@ public class EnterInteract : MonoBehaviour {
 			else
 			{
 				inMove = true;
-				go.GetComponent<Animator> ().Play ("WalkWithNoShake");
+				go.GetComponent<Animator> ().Play("WalkWithNoShake");
 			}
 		}
 
@@ -334,7 +334,7 @@ public class EnterInteract : MonoBehaviour {
 		{
 			controller = ctrl;
 			go = GameObject.FindGameObjectWithTag ("dog");
-			go.GetComponent<Animator> ().Play ("Idle3");
+			go.GetComponent<Animator> ().CrossFade ("Idle3", 0.25f);
 		}
 		
 		public override bool IsFinished()

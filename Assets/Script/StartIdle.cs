@@ -32,7 +32,7 @@ public class StartIdle : MonoBehaviour {
 			{
 				endTime = 0;
 				//GameObject.FindGameObjectWithTag("dog").GetComponent<Animator>().Play(animations[Random.Range(0, animations.Length)], 0);
-				GameObject.FindGameObjectWithTag("dog").GetComponent<Animator>().Play(animations[(count++)%animations.Length], 0); 
+				GameObject.FindGameObjectWithTag("dog").GetComponent<Animator>().CrossFade(animations[(count++)%animations.Length], 0.25f); 
 			}
 		}
 		else

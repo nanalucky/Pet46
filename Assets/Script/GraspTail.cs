@@ -109,7 +109,7 @@ public class GraspTail : MonoBehaviour {
 				ccdIK.solver.IKPositionWeight = 0.0f;
 				if(!string.IsNullOrEmpty(animName))
 				{
-					GameObject.FindGameObjectWithTag("dog").GetComponent<Animator>().Play(animName, animatorLayer);
+					GameObject.FindGameObjectWithTag("dog").GetComponent<Animator>().CrossFade(animName, 0.25f, animatorLayer);
 				}
 			}
 			else

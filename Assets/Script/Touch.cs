@@ -122,12 +122,12 @@ public class Touch : MonoBehaviour {
 						goDog.GetComponent<Animator>().SetBool("toempty", false);
 						if(string.Compare(animationName, "TouchHead") == 0)
 						{
-							goDog.GetComponent<Animator>().Play ("TouchHeadHead2", 1);
-							goDog.GetComponent<Animator>().Play("TongueOut", 3);
+							goDog.GetComponent<Animator>().CrossFade ("TouchHeadHead2", 0.25f, 1);
+							goDog.GetComponent<Animator>().CrossFade("TongueOut", 0.25f, 3);
 						}
 						else
 						{
-							goDog.GetComponent<Animator>().Play ("TouchBackHead2", 1);
+							goDog.GetComponent<Animator>().CrossFade ("TouchBackHead2", 0.25f, 1);
 						}
 						break;
 					case 1:
@@ -135,16 +135,16 @@ public class Touch : MonoBehaviour {
 						if(string.Compare(animationName, "TouchHead") == 0)
 						{
 							if(goDog.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SitIdle"))
-								goDog.GetComponent<Animator>().Play("TouchHeadHeadForSit", 1);
+								goDog.GetComponent<Animator>().CrossFade("TouchHeadHeadForSit", 0.25f, 1);
 							else
-								goDog.GetComponent<Animator>().Play ("TouchHeadHead", 1);
+								goDog.GetComponent<Animator>().CrossFade ("TouchHeadHead", 0.25f, 1);
 						}
 						else
 						{
 							if(goDog.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SitIdle"))
-								goDog.GetComponent<Animator>().Play ("TouchBackHeadForSit", 1);
+								goDog.GetComponent<Animator>().CrossFade ("TouchBackHeadForSit", 0.25f, 1);
 							else
-								goDog.GetComponent<Animator>().Play ("TouchBackHead", 1);
+								goDog.GetComponent<Animator>().CrossFade ("TouchBackHead", 0.25f, 1);
 						}
 						break;
 					}
@@ -192,7 +192,7 @@ public class Touch : MonoBehaviour {
 						if(string.Compare(animationName, "TouchHead") == 0)
 						{
 							goDog.GetComponent<Animator>().SetBool("toempty", true);
-							goDog.GetComponent<Animator>().Play("TongueIn", 3);
+							goDog.GetComponent<Animator>().CrossFade("TongueIn", 0.25f, 3);
 						}
 						else
 						{
