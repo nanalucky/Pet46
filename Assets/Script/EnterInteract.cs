@@ -261,7 +261,7 @@ public class EnterInteract : MonoBehaviour {
 			else
 			{
 				inMove = true;
-				go.GetComponent<Animator> ().Play("WalkWithNoShake");
+				go.GetComponent<Animator> ().Play("RunToCamera");
 			}
 		}
 
