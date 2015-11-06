@@ -89,6 +89,17 @@ public class UIController : MonoBehaviour {
 			btn.image.sprite = Resources.Load<Sprite>("UI/mute");
 	}
 
+	public void OnClickHelp()
+	{
+		var dogController = GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ();
+		Image imgHelp = dogController.imgHelp;
+		if(!imgHelp.IsActive())
+		{
+			imgHelp.gameObject.SetActive(true);
+			dogController.timeImgHelp = Time.time;
+		}
+	}
+
 	/*
 	public void OnClick()
 	{

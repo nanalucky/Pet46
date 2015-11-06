@@ -18,6 +18,9 @@ public class DogController : MonoBehaviour {
 	public Button[] btnRecords;
 	public Button[] btnPlays;
 	public Button btnVolume;
+	public Button btnHelp;
+	public Image imgHelp;
+	[HideInInspector]public float timeImgHelp = 0;
 
 	private float lookatBodyWeight;
 	private float lookatHeadWeight;
@@ -41,6 +44,12 @@ public class DogController : MonoBehaviour {
 		if (Input.GetKeyUp(KeyCode.A)) {
 			gameObject.GetComponent<Animator>().Play("Blink", 2);	
 			gameObject.GetComponent<Animator>().Play("Blink", 5);	
+		}
+
+		if(Input.GetMouseButtonUp(0))
+		{
+			if(imgHelp.IsActive() && Time.time > timeImgHelp + 1.0f)
+				imgHelp.gameObject.SetActive(false);
 		}
 	}
 
