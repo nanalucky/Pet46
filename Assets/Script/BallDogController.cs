@@ -53,8 +53,6 @@ public class BallDogController : MonoBehaviour {
 				velY = 0.0f;
 
 				gameObject.GetComponent<BallCamera>().enabled = false;
-				gameObject.GetComponent<BallDogCamera>().enabled = true;
-				gameObject.GetComponent<RotateCamera>().enabled = true;
 			}
 			break;
 		case State.Chase:

@@ -9,10 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 409536}
   - 114: {fileID: 11409544}
-  - 114: {fileID: 11409542}
   - 114: {fileID: 11409540}
   - 114: {fileID: 11409538}
-  - 114: {fileID: 11409536}
   m_Layer: 0
   m_Name: BallPlay
   m_TagString: BallPlay
@@ -32,18 +30,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11409536
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109536}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259ff2160fddb5944921a9bf5cc0b474, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MouseSensitivity: 2
 --- !u!114 &11409538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,20 +57,6 @@ MonoBehaviour:
   rushSuccessRate: .800000012
   eulerSmooth: .200000003
   force: 10
---- !u!114 &11409542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109536}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 061667a5d2966254f973cd6663b6d505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDistance: .800000012
-  maxDistance: 3
-  speedEulerX: 1
 --- !u!114 &11409544
 MonoBehaviour:
   m_ObjectHideFlags: 1

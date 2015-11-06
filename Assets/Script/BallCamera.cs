@@ -17,8 +17,6 @@ public class BallCamera : MonoBehaviour {
 		Camera.main.transform.position = Camera.main.transform.position;
 		if (goBall.GetComponent<Rigidbody>().velocity == Vector3.zero)
 		{
-			this.gameObject.GetComponent<BallDogCamera>().enabled = true;
-			this.gameObject.GetComponent<RotateCamera>().enabled = true;
 			this.enabled = false;
 		}
 	}
