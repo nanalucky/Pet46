@@ -272,7 +272,7 @@ public class DogController : MonoBehaviour {
 		if(enable)
 		{
 			Camera.main.GetComponent<AudioSource>().mute = volumeMute;
-			gameObject.GetComponent<AudioSource> ().mute = volumeMute;
+			gameObject.GetComponent<AudioSource> ().mute = false;
 		}
 		else
 		{
