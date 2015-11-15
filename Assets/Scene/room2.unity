@@ -3167,6 +3167,7 @@ GameObject:
   - 114: {fileID: 182304435}
   - 114: {fileID: 182304434}
   - 114: {fileID: 182304433}
+  - 95: {fileID: 182304438}
   m_Layer: 5
   m_Name: ButtonInteractRecord
   m_TagString: Untagged
@@ -3235,7 +3236,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
@@ -3286,6 +3287,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 182304431}
+--- !u!95 &182304438
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 182304431}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e71a7eefa421afb4ab8ad2218dc24a0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &185482744
 GameObject:
   m_ObjectHideFlags: 0
@@ -6603,6 +6619,7 @@ GameObject:
   - 114: {fileID: 458554840}
   - 114: {fileID: 458554843}
   - 114: {fileID: 458554844}
+  - 95: {fileID: 458554845}
   m_Layer: 5
   m_Name: ButtonRightRawRecord
   m_TagString: Untagged
@@ -6645,7 +6662,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
@@ -6722,6 +6739,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   word: RightRawUp
   saved: {fileID: 21300000, guid: bd2b20a31f3faba43bf9e20a8142f02d, type: 3}
+--- !u!95 &458554845
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458554838}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e71a7eefa421afb4ab8ad2218dc24a0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &461006363
 Prefab:
   m_ObjectHideFlags: 0
@@ -11295,6 +11327,7 @@ GameObject:
   - 114: {fileID: 864286547}
   - 114: {fileID: 864286550}
   - 114: {fileID: 864286551}
+  - 95: {fileID: 864286552}
   m_Layer: 5
   m_Name: 'ButtonLeftRawRecord '
   m_TagString: Untagged
@@ -11337,7 +11370,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
@@ -11414,6 +11447,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   word: LeftRawUp
   saved: {fileID: 21300000, guid: dce86e233eae1cc40a443911bdeae106, type: 3}
+--- !u!95 &864286552
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864286545}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e71a7eefa421afb4ab8ad2218dc24a0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &871143607
 GameObject:
   m_ObjectHideFlags: 0
@@ -14308,6 +14356,7 @@ GameObject:
   - 114: {fileID: 1112717570}
   - 114: {fileID: 1112717573}
   - 114: {fileID: 1112717574}
+  - 95: {fileID: 1112717575}
   m_Layer: 5
   m_Name: ButtonFallRecord
   m_TagString: Untagged
@@ -14350,7 +14399,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
@@ -14427,6 +14476,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   word: FallDown
   saved: {fileID: 21300000, guid: 63f5c1f170213f94c8061b477d25d62b, type: 3}
+--- !u!95 &1112717575
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112717568}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e71a7eefa421afb4ab8ad2218dc24a0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1129655056
 GameObject:
   m_ObjectHideFlags: 0
@@ -16337,6 +16401,7 @@ GameObject:
   - 114: {fileID: 1323312398}
   - 114: {fileID: 1323312401}
   - 114: {fileID: 1323312402}
+  - 95: {fileID: 1323312403}
   m_Layer: 5
   m_Name: ButtonSitRecord
   m_TagString: Untagged
@@ -16379,7 +16444,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
@@ -16456,6 +16521,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   word: SitDown
   saved: {fileID: 21300000, guid: 393106ce1cb27d64d874a8bb1fedad62, type: 3}
+--- !u!95 &1323312403
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1323312396}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e71a7eefa421afb4ab8ad2218dc24a0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1341739965
 GameObject:
   m_ObjectHideFlags: 0
@@ -17652,6 +17732,7 @@ GameObject:
   - 114: {fileID: 1435562657}
   - 114: {fileID: 1435562660}
   - 114: {fileID: 1435562661}
+  - 95: {fileID: 1435562662}
   m_Layer: 5
   m_Name: ButtonStandRecord
   m_TagString: Untagged
@@ -17694,7 +17775,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
@@ -17771,6 +17852,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   word: StandUp
   saved: {fileID: 21300000, guid: 99fc77ae33fbea341be587b1567af570, type: 3}
+--- !u!95 &1435562662
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1435562655}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e71a7eefa421afb4ab8ad2218dc24a0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1441868934
 Prefab:
   m_ObjectHideFlags: 0
