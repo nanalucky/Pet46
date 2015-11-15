@@ -15,6 +15,7 @@ public class DogController : MonoBehaviour {
 	public Button btnRecord;
 	public Button btnPlay;
 	public Button btnOrder;
+	public Button btnInteractOral;
 	public Button[] btnRecords;
 	public Button[] btnPlays;
 	public Button btnVolume;
@@ -50,6 +51,27 @@ public class DogController : MonoBehaviour {
 		{
 			if(imgHelp.IsActive() && Time.time > timeImgHelp + 1.0f)
 				imgHelp.gameObject.SetActive(false);
+		}
+
+		if(btnInteractOral.interactable)
+		{
+			RectTransform rectTransform = (btnInteractOral.transform) as RectTransform;
+			bool overButton = RectTransformUtility.RectangleContainsScreenPoint(rectTransform, new Vector2(Input.mousePosition.x, Input.mousePosition.y), null);
+			if (Input.GetMouseButton (0) && overButton) {
+				if(!record.GetComponent<Record>().IsEnableDetectWords())
+				{
+					record.GetComponent<Record>().EnableDetectWords(true);
+					record.GetComponent<Record>().interact = true;
+				}
+			}
+			else
+			{
+				if(record.GetComponent<Record>().IsEnableDetectWords())
+				{
+					record.GetComponent<Record>().EnableDetectWords(false);
+					record.GetComponent<Record>().interact = false;
+				}
+			}
 		}
 	}
 
@@ -192,6 +214,7 @@ public class DogController : MonoBehaviour {
 	{
 		Time.fixedDeltaTime = 0.02f;
 		GetComponent<StartIdle> ().enabled = false;
+		btnInteractOral.interactable = true;
 
 		// robot
 		Destroy(GameObject.FindGameObjectWithTag("RobotScript"));
@@ -210,12 +233,14 @@ public class DogController : MonoBehaviour {
 		// exercise
 		Destroy(GameObject.FindGameObjectWithTag("EnterExercise"));
 		Destroy(GameObject.FindGameObjectWithTag("Exercise"));
-		record.SetActive (false);
 
 		// order
 		Destroy(GameObject.FindGameObjectWithTag("EnterOrder"));
 		Destroy(GameObject.FindGameObjectWithTag("Order"));
-		record.SetActive (false);
+
+		//record.SetActive (false);
+		record.GetComponent<Record> ().EnableDetectWords (false);
+		record.GetComponent<Record>().interact = false;
 	}
 
 	public void ToRobot()
@@ -244,6 +269,7 @@ public class DogController : MonoBehaviour {
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterExercise"));
 		EnableMusicAndEffect (false);
+		btnInteractOral.interactable = false;
 	}
 
 	public void ToOrder()
@@ -251,6 +277,7 @@ public class DogController : MonoBehaviour {
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterOrder"));
 		EnableMusicAndEffect (false);
+		btnInteractOral.interactable = false;
 	}
 
 	public void PlayAudioEffect(string clipname)

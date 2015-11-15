@@ -34,6 +34,11 @@ public class UIController : MonoBehaviour {
 	{
 
 	}
+
+	public void OnClickInteractOral()
+	{
+		
+	}
 	
 	public void OnClickSitDownPlay()
 	{

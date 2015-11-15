@@ -53,6 +53,7 @@ public class Record : MonoBehaviour
 	public const string WORD_STANDUP = "StandUp";
 	public const string WORD_RIGHTRAWUP = "RightRawUp";
 	public const string WORD_LEFTRAWUP = "LeftRawUp";
+	public const string WORD_INTERACT = "Interact";
 
 
 	public Button btnNoiseRecord;
@@ -61,7 +62,9 @@ public class Record : MonoBehaviour
 	public Button btnStandUpRecord;
 	public Button btnRightRawUpRecord;
 	public Button btnLeftRawUpRecord;
+	public Button btnInteractRecord;
 
+	[HideInInspector]public bool interact = false;
 	private bool firstFrame = true;
 
 	protected virtual WordDetails GetWord(string label)
@@ -100,6 +103,7 @@ public class Record : MonoBehaviour
 		AudioWordDetection.Words.Add(new WordDetails() { Label = WORD_STANDUP });
 		AudioWordDetection.Words.Add(new WordDetails() { Label = WORD_RIGHTRAWUP });
 		AudioWordDetection.Words.Add(new WordDetails() { Label = WORD_LEFTRAWUP });
+		AudioWordDetection.Words.Add(new WordDetails() { Label = WORD_INTERACT });
 		//subscribe detection event
 		AudioWordDetection.WordDetectedEvent += WordDetectedHandler;
 
@@ -129,16 +133,25 @@ public class Record : MonoBehaviour
 		
 		Debug.Log(string.Format("Detected: {0}", args.Details.Label));
 
-		if (string.Compare(args.Details.Label, WORD_SITDOWN) == 0) {
-			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().SitDown();
-		} else if (string.Compare(args.Details.Label, WORD_FALLDOWN) == 0) {
-			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().FallDown();
-		}else if (string.Compare(args.Details.Label, WORD_STANDUP) == 0) {
-			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().StandUp();
-		}else if (string.Compare(args.Details.Label, WORD_RIGHTRAWUP) == 0) {
-			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().RightRawUp();
-		}else if (string.Compare(args.Details.Label, WORD_LEFTRAWUP) == 0) {
-			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().LeftRawUp();
+		if(interact)
+		{
+			if (string.Compare(args.Details.Label, WORD_INTERACT) == 0) {
+				GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().ToInteract();
+			}
+		}
+		else
+		{
+			if (string.Compare(args.Details.Label, WORD_SITDOWN) == 0) {
+				GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().SitDown();
+			} else if (string.Compare(args.Details.Label, WORD_FALLDOWN) == 0) {
+				GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().FallDown();
+			}else if (string.Compare(args.Details.Label, WORD_STANDUP) == 0) {
+				GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().StandUp();
+			}else if (string.Compare(args.Details.Label, WORD_RIGHTRAWUP) == 0) {
+				GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().RightRawUp();
+			}else if (string.Compare(args.Details.Label, WORD_LEFTRAWUP) == 0) {
+				GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().LeftRawUp();
+			}
 		}
 	}
 	
@@ -447,6 +460,7 @@ public class Record : MonoBehaviour
 		ButtonSetProfile (btnStandUpRecord, WORD_STANDUP);
 		ButtonSetProfile (btnRightRawUpRecord, WORD_RIGHTRAWUP);
 		ButtonSetProfile (btnLeftRawUpRecord, WORD_LEFTRAWUP);
+		ButtonSetProfile (btnInteractRecord, WORD_INTERACT);
 
 		if (m_timerStartNoise != DateTime.MinValue && m_timerStartNoise <= DateTime.Now) {
 			NoiseSetProfile();

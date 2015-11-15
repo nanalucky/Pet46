@@ -1,25 +1,26 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Grasp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Record.cs">
     <Files>
-      <File FileName="Assets\Script\LookCamera.cs" Line="15" Column="29" />
-      <File FileName="Assets\RootMotion\FinalIK\_DEMOS\Aim IK\Scripts\AimBoxing.cs" Line="16" Column="1" />
-      <File FileName="Assets\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\EffectorOffset.cs" Line="21" Column="8" />
-      <File FileName="Assets\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\CarryBoxDemo.cs" Line="16" Column="8" />
-      <File FileName="Assets\Script\DogController.cs" Line="53" Column="49" />
-      <File FileName="Assets\Script\SkinnedCollisionHelper.cs" Line="108" Column="1" />
-      <File FileName="Assets\Script\EnterInteract.cs" Line="272" Column="29" />
-      <File FileName="Assets\Script\Grasp.cs" Line="93" Column="24" />
+      <File FileName="Assets\Script\Record.cs" Line="490" Column="3" />
+      <File FileName="Assets\Script\DogController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\UIController.cs" Line="60" Column="91" />
+      <File FileName="Assets\Script\RobotController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Order.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\EnterExercise.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\EnterOrder.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Exercise.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Nana\Documents\GitHub\Pet46\Assets\WordDetection\Scripts\WordDetection.cs" line="109" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="Assets\Script\DogController.cs" line="50" offsetX="588" offsetY="833" expression="animInfo" liveUpdate="False" />
     <Watch file="Assets\Script\BallCamera.cs" line="26" offsetX="1212" offsetY="425" expression="Camera.main.transform.rotation" liveUpdate="False" />
     <Watch file="Assets\Script\Record.cs" line="69" offsetX="659" offsetY="972" expression="AudioWordDetection" liveUpdate="False" />
+    <Watch file="Assets\Script\StartIdle.cs" line="16" offsetX="1108" offsetY="255" expression="GameObject" liveUpdate="False" />
+    <Watch file="Assets\Script\Record.cs" line="491" offsetX="468" offsetY="7854" expression="details" liveUpdate="False" />
+    <Watch file="Assets\Script\Record.cs" line="492" offsetX="340" offsetY="7871" expression="details" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>
