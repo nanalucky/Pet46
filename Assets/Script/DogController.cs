@@ -262,7 +262,7 @@ public class DogController : MonoBehaviour {
 	public void ToInteract2()
 	{
 		if (IsStand ()) {
-			animator.CrossFade("Idle2", 0.25f);
+			animator.CrossFade("Sniffer", 0.25f);
 		}else{
 			StandUp();
 			StartCoroutine("PlayToInteract2");
@@ -275,7 +275,7 @@ public class DogController : MonoBehaviour {
 		{
 			yield return null;
 		}
-		animator.CrossFade("Idle2", 0.25f);
+		animator.CrossFade("Sniffer", 0.25f);
 	}
 
 	public void ToBall()
