@@ -3203,8 +3203,8 @@ RectTransform:
   m_RootOrder: 17
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -94, y: 236}
-  m_SizeDelta: {x: 177, y: 80}
+  m_AnchoredPosition: {x: -94, y: 239}
+  m_SizeDelta: {x: 177, y: 75}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &182304433
 MonoBehaviour:
@@ -3218,7 +3218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   word: Interact
-  saved: {fileID: 21300000, guid: dce86e233eae1cc40a443911bdeae106, type: 3}
+  saved: {fileID: 21300000, guid: 89f09e25ec88839479d84d1e276c9bf8, type: 3}
 --- !u!114 &182304434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3230,8 +3230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252f5f39543af8e47b1c265127a08f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normal: {fileID: 21300000, guid: a41fd2425575e594aaf78d6e9358e2fd, type: 3}
-  pressed: {fileID: 21300000, guid: 69fd02385affa864a91c0484cc78e7bf, type: 3}
+  normal: {fileID: 21300000, guid: 4d76d23c8df82264ba1d6e33b7d58173, type: 3}
+  pressed: {fileID: 21300000, guid: 632c03fc808777f4d917d49c560d9a13, type: 3}
 --- !u!114 &182304435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3286,7 +3286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: a41fd2425575e594aaf78d6e9358e2fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d76d23c8df82264ba1d6e33b7d58173, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13817,8 +13817,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 79, y: -101}
-  m_SizeDelta: {x: 139, y: 187}
+  m_AnchoredPosition: {x: 110, y: -106}
+  m_SizeDelta: {x: 185, y: 190}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1071934478
 MonoBehaviour:
@@ -13831,8 +13831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252f5f39543af8e47b1c265127a08f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normal: {fileID: 21300000, guid: 18cdd78c04edfca42887e3ff1778d37f, type: 3}
-  pressed: {fileID: 21300000, guid: 1a0054b1b01a8484bbc847e96cbef015, type: 3}
+  normal: {fileID: 21300000, guid: 46f014cb5d6096346ae1b9eec639931c, type: 3}
+  pressed: {fileID: 21300000, guid: 46f014cb5d6096346ae1b9eec639931c, type: 3}
 --- !u!114 &1071934479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13910,7 +13910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 18cdd78c04edfca42887e3ff1778d37f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46f014cb5d6096346ae1b9eec639931c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

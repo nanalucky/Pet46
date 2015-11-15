@@ -62,6 +62,7 @@ public class DogController : MonoBehaviour {
 				{
 					record.GetComponent<Record>().EnableDetectWords(true);
 					record.GetComponent<Record>().interact = true;
+					EnableMusicAndEffect(false);
 				}
 			}
 			else
@@ -70,6 +71,7 @@ public class DogController : MonoBehaviour {
 				{
 					record.GetComponent<Record>().EnableDetectWords(false);
 					record.GetComponent<Record>().interact = false;
+					EnableMusicAndEffect(true);
 				}
 			}
 		}
@@ -257,6 +259,25 @@ public class DogController : MonoBehaviour {
 		EnableMusicAndEffect (true);
 	}
 
+	public void ToInteract2()
+	{
+		if (IsStand ()) {
+			animator.CrossFade("Idle2", 0.25f);
+		}else{
+			StandUp();
+			StartCoroutine("PlayToInteract2");
+		}
+	}
+	
+	IEnumerator PlayToInteract2()
+	{
+		while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Stand"))
+		{
+			yield return null;
+		}
+		animator.CrossFade("Idle2", 0.25f);
+	}
+
 	public void ToBall()
 	{
 		ClearAll ();
@@ -304,7 +325,7 @@ public class DogController : MonoBehaviour {
 		else
 		{
 			Camera.main.GetComponent<AudioSource>().mute = true;
-			gameObject.GetComponent<AudioSource> ().mute = true;
+			gameObject.GetComponent<AudioSource> ().mute = false;
 		}
 	}
 

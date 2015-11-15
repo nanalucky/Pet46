@@ -151,6 +151,8 @@ public class Record : MonoBehaviour
 				GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().RightRawUp();
 			}else if (string.Compare(args.Details.Label, WORD_LEFTRAWUP) == 0) {
 				GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().LeftRawUp();
+			}else if (string.Compare(args.Details.Label, WORD_INTERACT) == 0) {
+				GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().ToInteract2();
 			}
 		}
 	}
