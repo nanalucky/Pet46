@@ -138,6 +138,8 @@ public class BallDogController : MonoBehaviour {
 
 	void OnDestroy()
 	{
-		GameObject.FindGameObjectWithTag("dog").GetComponent<DogController> ().EnableLookatIK (false);
+		GameObject goDog = GameObject.FindGameObjectWithTag ("dog");
+		if(goDog != null)
+			goDog.GetComponent<DogController> ().EnableLookatIK (false);
 	}
 }
