@@ -112,7 +112,6 @@ public class BallDogController : MonoBehaviour {
 					rb.AddForce(goDog.transform.rotation * (new Vector3(0, 0, force)));
 					goDog.GetComponent<Animator>().Play("RushToStand");
 					this.enabled = false;
-					this.gameObject.GetComponent<BallDogCamera>().enabled = false;
 				}
 			}
 			break;
@@ -131,7 +130,6 @@ public class BallDogController : MonoBehaviour {
 					rb.AddForce(goDog.transform.rotation * (new Vector3(0, 0, force)));
 					goDog.GetComponent<Animator>().Play("RushToStand");
 					this.enabled = false;
-					this.gameObject.GetComponent<BallDogCamera>().enabled = false;
 				}
 			}
 			break;
