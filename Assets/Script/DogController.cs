@@ -23,6 +23,8 @@ public class DogController : MonoBehaviour {
 	public Image imgHelp;
 	[HideInInspector]public float timeImgHelp = 0;
 	public Text textDebug;
+	public Image imgQuestion;
+	[HideInInspector]public float timeImgQuestion = 0;
 
 	private float lookatBodyWeight;
 	private float lookatHeadWeight;
@@ -52,6 +54,12 @@ public class DogController : MonoBehaviour {
 		{
 			if(imgHelp.IsActive() && Time.time > timeImgHelp + 1.0f)
 				imgHelp.gameObject.SetActive(false);
+		}
+
+		if(timeImgQuestion != 0.0f && Time.time > timeImgQuestion + 1.0f)
+		{
+			imgQuestion.gameObject.SetActive(false);
+			timeImgQuestion = 0.0f;
 		}
 
 		if(btnInteractOral.interactable)
@@ -340,5 +348,11 @@ public class DogController : MonoBehaviour {
 	public void DebugShow(string label)
 	{
 		textDebug.text = label;
+	}
+
+	public void ShowQuestion()
+	{
+		imgQuestion.gameObject.SetActive(true);
+		timeImgQuestion = Time.time;
 	}
 }

@@ -488,11 +488,12 @@ public class Word : MonoBehaviour
 	{
 		if(args.result == false)
 		{
-			Debug.LogError(string.Format("Record {0} FALSE", args.Details.Label));
+			//Debug.LogError(string.Format("Record {0} FALSE", args.Details.Label));
+			GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().ShowQuestion();
 		}
 		else
 		{
-			Debug.LogError(string.Format("Record {0} TRUE", args.Details.Label));
+			//Debug.LogError(string.Format("Record {0} TRUE", args.Details.Label));
 			WordDetectHandler(null, args);
 		}
 	}
