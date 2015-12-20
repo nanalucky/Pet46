@@ -42,42 +42,42 @@ public class UIController : MonoBehaviour {
 	
 	public void OnClickSitDownPlay()
 	{
-		GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ().PlayProfile (Record.WORD_SITDOWN);
+		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_SITDOWN);
 	}
 
 	public void OnClickFallDownPlay()
 	{
-		GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ().PlayProfile (Record.WORD_FALLDOWN);
+		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_FALLDOWN);
 	}
 
 	public void OnClickStandUpPlay()
 	{
-		GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ().PlayProfile (Record.WORD_STANDUP);
+		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_STANDUP);
 	}
 
 	public void OnClickRightRawUpPlay()
 	{
-		GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ().PlayProfile (Record.WORD_RIGHTRAWUP);
+		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_RIGHTRAWUP);
 	}
 
 	public void OnClickLeftRawUpPlay()
 	{
-		GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ().PlayProfile (Record.WORD_LEFTRAWUP);
+		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_LEFTRAWUP);
 	}
 
 	public void OnClickNoisePlay()
 	{
-		GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ().PlayProfile (Record.WORD_NOISE);
+		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_NOISE);
 	}
 
 	public void OnClickLoad()
 	{
-		GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ().ProfileLoad();
+		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().ProfileLoad();
 	}
 
 	public void OnClickSave()
 	{
-		GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ().ProfileSave();
+		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().ProfileSave();
 	}
 
 	public void OnClickVolume()
@@ -104,6 +104,7 @@ public class UIController : MonoBehaviour {
 			dogController.timeImgHelp = Time.time;
 		}
 	}
+
 
 	/*
 	public void OnClick()

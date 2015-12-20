@@ -5,11 +5,6 @@ public class EnterOrder : EnterInteract {
 	
 	// Use this for initialization
 	void Start () {
-		DogController dogController = GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>();
-		//dogController.record.SetActive(true);
-		//dogController.record.GetComponent<Record> ().EnableDetectWords (false);
-		//dogController.record.GetComponent<Record> ().interact = false;
-		
 		// choose the farest lookat
 		lookat = GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().lookats [3];
 		

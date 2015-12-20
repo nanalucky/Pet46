@@ -1,8 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\WordDetection\Scripts\WordDetection.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Record.cs">
     <Files>
-      <File FileName="Assets\WordDetection\Scripts\WordDetection.cs" Line="347" Column="1" />
+      <File FileName="Assets\Script\Word.cs" Line="421" Column="26" />
+      <File FileName="Assets\Script\WordRecord.cs" Line="82" Column="1" />
+      <File FileName="Assets\Script\WordDetect.cs" Line="190" Column="20" />
+      <File FileName="Assets\Script\DogController.cs" Line="62" Column="37" />
+      <File FileName="Assets\Script\Exercise.cs" Line="27" Column="3" />
+      <File FileName="Assets\Script\Order.cs" Line="27" Column="15" />
+      <File FileName="Assets\Script\Record.cs" Line="265" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -15,5 +21,6 @@
     <Watch file="Assets\Script\StartIdle.cs" line="16" offsetX="1108" offsetY="255" expression="GameObject" liveUpdate="False" />
     <Watch file="Assets\Script\Record.cs" line="491" offsetX="468" offsetY="7854" expression="details" liveUpdate="False" />
     <Watch file="Assets\Script\Record.cs" line="492" offsetX="340" offsetY="7871" expression="details" liveUpdate="False" />
+    <Watch file="Assets\Script\WordRecord.cs" line="46" offsetX="573" offsetY="656" expression="word.Mic" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

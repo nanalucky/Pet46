@@ -258,7 +258,7 @@ public class SpectrumMicrophone : MonoBehaviour
             {
                 if (min != 0f)
                 {
-                    val /= max;
+                    val /= min;
                 }
             }
 

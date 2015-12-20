@@ -46,6 +46,7 @@ public class LookCamera : MonoBehaviour {
 	}
 
 	void OnDestroy () {
-		GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().EnableLookatIK (false);
+		if(GameObject.FindGameObjectWithTag ("dog") != null)
+			GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().EnableLookatIK (false);
 	}
 }

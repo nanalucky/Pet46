@@ -411,7 +411,7 @@ public class Record : MonoBehaviour
 				WordDetails details = GetWord(WORD_NOISE);
 				if(details.Wave == null)
 				{
-					m_timerStartNoise = DateTime.Now + TimeSpan.FromSeconds(1);
+					m_timerStartNoise = DateTime.Now + TimeSpan.FromSeconds(Mic.CaptureTime);
 				}
 			}
 		}

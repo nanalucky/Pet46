@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ButtonChangeSprite : MonoBehaviour {
 
-	public string word;
+	public string label;
 	public Sprite saved;
 	private bool bSaved = false;
 
@@ -14,9 +14,9 @@ public class ButtonChangeSprite : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (GameObject.FindGameObjectWithTag ("Record")) {
-			Record record = GameObject.FindGameObjectWithTag ("Record").GetComponent<Record> ();
-			if (record.HasProfile (word) != bSaved) {
+		if (GameObject.FindGameObjectWithTag ("Word")) {
+			Word word = GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ();
+			if (word.HasProfile (label) != bSaved) {
 				gameObject.GetComponent<Button>().image.sprite = saved;
 				bSaved = !bSaved;
 			}

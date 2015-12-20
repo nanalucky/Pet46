@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Order : MonoBehaviour {
 
 	private Button btn;
-	private Record record;
+	private Word word;
 
 	void Start () {
 		GameObject goLookCamera = Instantiate (Resources.Load ("Prefabs/LookCamera")) as GameObject;
@@ -15,7 +15,7 @@ public class Order : MonoBehaviour {
 		dogController.btnPlay.gameObject.SetActive (false);
 		dogController.btnOrder.gameObject.SetActive (true);
 		btn = dogController.btnOrder;
-		record = dogController.record.GetComponent<Record> ();
+		word = dogController.word.GetComponent<Word> ();
 	}
 	
 	
@@ -24,14 +24,14 @@ public class Order : MonoBehaviour {
 		RectTransform rectTransform = (btn.transform) as RectTransform;
 		bool overButton = RectTransformUtility.RectangleContainsScreenPoint(rectTransform, new Vector2(Input.mousePosition.x, Input.mousePosition.y), null);
 		if (Input.GetMouseButton (0) && overButton) {
-			if(!record.IsEnableDetectWords())
-				record.EnableDetectWords(true);
+			if(!word.IsEnableDetect())
+				word.EnableDetect(true);
 		}
 		else
 		{
-			if(record.IsEnableDetectWords())
+			if(word.IsEnableDetect())
 			{
-				record.EnableDetectWords(false);
+				word.EnableDetect(false);
 				btn.gameObject.SetActive(false);
 				btn.gameObject.SetActive(true);
 			}
@@ -42,7 +42,6 @@ public class Order : MonoBehaviour {
 	void OnDestroy() {
 		DogController dogController = GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ();
 		if (dogController != null) {
-			//dogController.record.SetActive(false);
 			dogController.btnPlay.gameObject.SetActive(true);
 			dogController.btnOrder.gameObject.SetActive (false);
 		}

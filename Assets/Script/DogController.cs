@@ -11,7 +11,7 @@ public class DogController : MonoBehaviour {
 	public float runSpeed = 1.8f;
 	public float rushSpeed = 1.5f;
 
-	public GameObject record;
+	public GameObject word;
 	public Button btnRecord;
 	public Button btnPlay;
 	public Button btnOrder;
@@ -22,6 +22,7 @@ public class DogController : MonoBehaviour {
 	public Button btnHelp;
 	public Image imgHelp;
 	[HideInInspector]public float timeImgHelp = 0;
+	public Text textDebug;
 
 	private float lookatBodyWeight;
 	private float lookatHeadWeight;
@@ -58,19 +59,19 @@ public class DogController : MonoBehaviour {
 			RectTransform rectTransform = (btnInteractOral.transform) as RectTransform;
 			bool overButton = RectTransformUtility.RectangleContainsScreenPoint(rectTransform, new Vector2(Input.mousePosition.x, Input.mousePosition.y), null);
 			if (Input.GetMouseButton (0) && overButton) {
-				if(!record.GetComponent<Record>().IsEnableDetectWords())
+				if(!word.GetComponent<Word>().IsEnableDetect())
 				{
-					record.GetComponent<Record>().EnableDetectWords(true);
-					record.GetComponent<Record>().interact = true;
+					word.GetComponent<Word>().EnableDetect(true);
+					word.GetComponent<Word>().interact = true;
 					EnableMusicAndEffect(false);
 				}
 			}
 			else
 			{
-				if(record.GetComponent<Record>().IsEnableDetectWords())
+				if(word.GetComponent<Word>().IsEnableDetect())
 				{
-					record.GetComponent<Record>().EnableDetectWords(false);
-					record.GetComponent<Record>().interact = false;
+					word.GetComponent<Word>().EnableDetect(false);
+					word.GetComponent<Word>().interact = false;
 					EnableMusicAndEffect(true);
 				}
 			}
@@ -241,8 +242,8 @@ public class DogController : MonoBehaviour {
 		Destroy(GameObject.FindGameObjectWithTag("Order"));
 
 		//record.SetActive (false);
-		record.GetComponent<Record> ().EnableDetectWords (false);
-		record.GetComponent<Record>().interact = false;
+		word.GetComponent<Word> ().EnableDetect (false);
+		word.GetComponent<Word>().interact = false;
 	}
 
 	public void ToRobot()
@@ -334,5 +335,10 @@ public class DogController : MonoBehaviour {
 	public Vector3 GetDogPivot()
 	{
 		return transform.FindChild("pivot").position;
+	}
+
+	public void DebugShow(string label)
+	{
+		textDebug.text = label;
 	}
 }

@@ -10,13 +10,14 @@ TagManager:
   - Interact
   - Mouth
   - RobotScript
-  - Record
+  - Record_Predict
   - EnterBall
   - EnterExercise
   - Exercise
   - Gesture
   - EnterOrder
   - Order
+  - Word
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
