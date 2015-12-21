@@ -3961,7 +3961,7 @@ MonoBehaviour:
   NormalizeWave: 0
   RemoveSpectrumNoise: 0
   RecordWordToNoiseInterval: .200000003
-  RecordScoreThreshhold: 300
+  RecordScoreThreshhold: 250
   DetectThreshold: 60
   WordsToIgnore: []
   interact: 0
@@ -6630,6 +6630,9 @@ MonoBehaviour:
   textDebug: {fileID: 1463264449}
   imgQuestion: {fileID: 414782259}
   timeImgQuestion: 0
+  btnRobot: {fileID: 1099873649}
+  btnInteract: {fileID: 1985995930}
+  btnBall: {fileID: 1013967869}
   volumeEnabled: 1
   volumeMute: 0
   lookats:
@@ -9138,7 +9141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &632010054
 RectTransform:
   m_ObjectHideFlags: 0

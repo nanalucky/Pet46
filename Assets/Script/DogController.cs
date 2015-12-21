@@ -26,6 +26,10 @@ public class DogController : MonoBehaviour {
 	public Image imgQuestion;
 	[HideInInspector]public float timeImgQuestion = 0;
 
+	public Button btnRobot;
+	public Button btnInteract;
+	public Button btnBall;
+
 	private float lookatBodyWeight;
 	private float lookatHeadWeight;
 	private float lookatEyeWeight;
@@ -252,6 +256,13 @@ public class DogController : MonoBehaviour {
 		//record.SetActive (false);
 		word.GetComponent<Word> ().EnableDetect (false);
 		word.GetComponent<Word>().interact = false;
+
+		btnInteract.interactable = true;
+		btnInteractOral.interactable = true;
+		btnRobot.interactable = true;
+		btnBall.interactable = true;
+		btnRecord.interactable = true;
+		btnPlay.interactable = true;
 	}
 
 	public void ToRobot()
@@ -259,6 +270,7 @@ public class DogController : MonoBehaviour {
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/RobotScript"));
 		EnableMusicAndEffect (true);
+		btnRobot.interactable = false;
 	}
 
 	public void ToInteract()
@@ -266,6 +278,9 @@ public class DogController : MonoBehaviour {
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterInteract"));
 		EnableMusicAndEffect (true);
+
+		btnInteract.interactable = false;
+		btnInteractOral.interactable = false;
 	}
 
 	public void ToInteract2()
@@ -294,6 +309,7 @@ public class DogController : MonoBehaviour {
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterBall"));
 		EnableMusicAndEffect (true);
+		//btnBall.interactable = false;
 	}
 
 	public void ToExercise()
@@ -302,6 +318,7 @@ public class DogController : MonoBehaviour {
 		Instantiate(Resources.Load("Prefabs/EnterExercise"));
 		EnableMusicAndEffect (false);
 		btnInteractOral.interactable = false;
+		btnRecord.interactable = false;
 	}
 
 	public void ToOrder()
@@ -310,6 +327,7 @@ public class DogController : MonoBehaviour {
 		Instantiate(Resources.Load("Prefabs/EnterOrder"));
 		EnableMusicAndEffect (false);
 		btnInteractOral.interactable = false;
+		btnPlay.interactable = false;
 	}
 
 	public void PlayAudioEffect(string clipname)
