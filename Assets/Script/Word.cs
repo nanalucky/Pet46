@@ -17,7 +17,7 @@ public class Word : MonoBehaviour
 	public bool NormalizeWave = false;
 	public bool RemoveSpectrumNoise = false;
 	public float RecordWordToNoiseInterval = 0.2f;
-	public float RecordScoreThreshhold = 300.0f; 
+	public float RecordScoreThreshhold = 250.0f; 
 	public int DetectThreshold = 60;
 
 	public List<WordDetails> Words = new List<WordDetails>();
