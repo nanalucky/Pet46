@@ -178,7 +178,8 @@ public class WordDetect : MonoBehaviour
 			}
 		}
 		
-		if (ClosestIndex != closestIndex)
+		//GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().DebugShow(string.Format("1111 minScore:{0}, closestIndex:{1}", minScore, closestIndex));
+		if (ClosestIndex != closestIndex && minScore < word.DetectScoreThreshhold)
 		{
 			ClosestIndex = closestIndex;
 			if (null != WordDetectEvent)
@@ -188,6 +189,8 @@ public class WordDetect : MonoBehaviour
 				//Debug.Log(args.Details.Label);
 				WordDetectEvent.Invoke(this, args);
 				ClearMicData();
+
+				GameObject.FindGameObjectWithTag("dog").GetComponent<DogController>().DebugShow(string.Format("2222 minScore:{0}, closestIndex:{1}", minScore, closestIndex));
 			}
 		}
 	}
@@ -201,5 +204,12 @@ public class WordDetect : MonoBehaviour
 		{
 			wave[index] = 0;
 		}
+	}
+
+	public void Enable(bool enable)
+	{
+		EnableDetect = enable;
+		ClearMicData();
+		ClosestIndex = 0;
 	}
 }

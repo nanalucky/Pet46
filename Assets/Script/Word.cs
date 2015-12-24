@@ -18,6 +18,7 @@ public class Word : MonoBehaviour
 	public bool RemoveSpectrumNoise = false;
 	public float RecordWordToNoiseInterval = 0.2f;
 	public float RecordScoreThreshhold = 250.0f; 
+	public float DetectScoreThreshhold = 100.0f;
 	public int DetectThreshold = 60;
 
 	public List<WordDetails> Words = new List<WordDetails>();
@@ -59,10 +60,10 @@ public class Word : MonoBehaviour
 		Words.Add(new WordDetails() { Label = WORD_NOISE });
 		Words.Add(new WordDetails() { Label = WORD_SITDOWN });
 		Words.Add(new WordDetails() { Label = WORD_FALLDOWN });
-		Words.Add(new WordDetails() { Label = WORD_STANDUP });
 		Words.Add(new WordDetails() { Label = WORD_RIGHTRAWUP });
 		Words.Add(new WordDetails() { Label = WORD_LEFTRAWUP });
 		Words.Add(new WordDetails() { Label = WORD_INTERACT });
+		Words.Add(new WordDetails() { Label = WORD_STANDUP });
 		GetComponent<WordDetect>().WordDetectEvent += WordDetectHandler;
 		GetComponent<WordRecord> ().WordRecordEvent += WordRecordHandler;
 
@@ -420,8 +421,7 @@ public class Word : MonoBehaviour
 	
 	public void EnableDetect(bool enable)
 	{
-		GetComponent<WordDetect>().EnableDetect = enable;
-		GetComponent<WordDetect> ().ClearMicData ();
+		GetComponent<WordDetect> ().Enable (enable);
 	}
 	
 	public bool IsEnableDetect()
