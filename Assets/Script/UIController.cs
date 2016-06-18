@@ -27,7 +27,7 @@ public class UIController : MonoBehaviour {
 
 	public void OnClickPlay()
 	{
-		GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().ToOrder ();
+		GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().ToSpeech ();
 	}
 
 	public void OnClickOrder()
@@ -42,42 +42,42 @@ public class UIController : MonoBehaviour {
 	
 	public void OnClickSitDownPlay()
 	{
-		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_SITDOWN);
+		//GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_SITDOWN);
 	}
 
 	public void OnClickFallDownPlay()
 	{
-		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_FALLDOWN);
+		//GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_FALLDOWN);
 	}
 
 	public void OnClickStandUpPlay()
 	{
-		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_STANDUP);
+		//GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_STANDUP);
 	}
 
 	public void OnClickRightRawUpPlay()
 	{
-		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_RIGHTRAWUP);
+		//GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_RIGHTRAWUP);
 	}
 
 	public void OnClickLeftRawUpPlay()
 	{
-		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_LEFTRAWUP);
+		//GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_LEFTRAWUP);
 	}
 
 	public void OnClickNoisePlay()
 	{
-		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_NOISE);
+		//GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().PlayProfile (Word.WORD_NOISE);
 	}
 
 	public void OnClickLoad()
 	{
-		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().ProfileLoad();
+		//GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().ProfileLoad();
 	}
 
 	public void OnClickSave()
 	{
-		GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().ProfileSave();
+		//GameObject.FindGameObjectWithTag ("Word").GetComponent<Word> ().ProfileSave();
 	}
 
 	public void OnClickVolume()

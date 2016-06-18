@@ -15,6 +15,7 @@ public class DogController : MonoBehaviour {
 	public Button btnRecord;
 	public Button btnPlay;
 	public Button btnOrder;
+	public Button btnSpeech;
 	public Button btnInteractOral;
 	public Button[] btnRecords;
 	public Button[] btnPlays;
@@ -66,6 +67,7 @@ public class DogController : MonoBehaviour {
 			timeImgQuestion = 0.0f;
 		}
 
+		/*
 		if(btnInteractOral.interactable)
 		{
 			RectTransform rectTransform = (btnInteractOral.transform) as RectTransform;
@@ -88,6 +90,7 @@ public class DogController : MonoBehaviour {
 				}
 			}
 		}
+		*/
 	}
 
 	public void EnableLookatIK(bool enabled)
@@ -229,7 +232,7 @@ public class DogController : MonoBehaviour {
 	{
 		Time.fixedDeltaTime = 0.02f;
 		GetComponent<StartIdle> ().enabled = false;
-		btnInteractOral.interactable = true;
+		//btnInteractOral.interactable = true;
 
 		// robot
 		Destroy(GameObject.FindGameObjectWithTag("RobotScript"));
@@ -253,15 +256,19 @@ public class DogController : MonoBehaviour {
 		Destroy(GameObject.FindGameObjectWithTag("EnterOrder"));
 		Destroy(GameObject.FindGameObjectWithTag("Order"));
 
+		// speech
+		Destroy(GameObject.FindGameObjectWithTag("EnterSpeech"));
+		Destroy(GameObject.FindGameObjectWithTag("Speech"));
+
 		//record.SetActive (false);
-		word.GetComponent<Word> ().EnableDetect (false);
-		word.GetComponent<Word>().interact = false;
+		//word.GetComponent<Word> ().EnableDetect (false);
+		//word.GetComponent<Word>().interact = false;
 
 		btnInteract.interactable = true;
-		btnInteractOral.interactable = true;
+		//btnInteractOral.interactable = true;
 		btnRobot.interactable = true;
 		btnBall.interactable = true;
-		btnRecord.interactable = true;
+		//btnRecord.interactable = true;
 		btnPlay.interactable = true;
 	}
 
@@ -280,7 +287,7 @@ public class DogController : MonoBehaviour {
 		EnableMusicAndEffect (true);
 
 		btnInteract.interactable = false;
-		btnInteractOral.interactable = false;
+		//btnInteractOral.interactable = false;
 	}
 
 	public void ToInteract2()
@@ -317,8 +324,8 @@ public class DogController : MonoBehaviour {
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterExercise"));
 		EnableMusicAndEffect (false);
-		btnInteractOral.interactable = false;
-		btnRecord.interactable = false;
+		//btnInteractOral.interactable = false;
+		//btnRecord.interactable = false;
 	}
 
 	public void ToOrder()
@@ -326,7 +333,15 @@ public class DogController : MonoBehaviour {
 		ClearAll ();
 		Instantiate(Resources.Load("Prefabs/EnterOrder"));
 		EnableMusicAndEffect (false);
-		btnInteractOral.interactable = false;
+		//btnInteractOral.interactable = false;
+		btnPlay.interactable = false;
+	}
+
+	public void ToSpeech()
+	{
+		ClearAll ();
+		Instantiate(Resources.Load("Prefabs/EnterSpeech"));
+		EnableMusicAndEffect (true);
 		btnPlay.interactable = false;
 	}
 
