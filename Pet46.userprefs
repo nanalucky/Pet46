@@ -1,12 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\DogController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\RootMotion\FinalIK\IK Solvers\FABRIKChain.cs">
     <Files>
       <File FileName="Assets\Script\UIController.cs" Line="87" Column="3" />
       <File FileName="Assets\Script\WordDetect.cs" Line="56" Column="33" />
       <File FileName="Assets\Script\DogController.cs" Line="25" Column="32" />
       <File FileName="Assets\Script\Exercise.cs" Line="12" Column="3" />
       <File FileName="Assets\Script\ButtonStartRecord.cs" Line="28" Column="18" />
+      <File FileName="Assets\RootMotion\FinalIK\IK Solvers\FABRIKChain.cs" Line="117" Column="1" />
+      <File FileName="Assets\AndroidUltimatePlugin\HowToUse.txt" Line="24" Column="100" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -14,6 +14,7 @@ public class SpeechRecognizer : MonoBehaviour {
 		Max,
 	}
 
+	public GameObject imageHintSpeech;
 	public string textSitDown;
 	public string textFallDown;
 	public string textStandUp;
@@ -59,6 +60,8 @@ public class SpeechRecognizer : MonoBehaviour {
 			//by activating this, the Speech Recognizer will start and you can start Speaking or saying something 
 			//speech listener will stop automatically especially when you stop speaking or when you are speaking 
 			//for a long time
+
+			imageHintSpeech.SetActive(true);
 		}else{
 			toast.ShowToastMessage("本手机不支持语音识别");
 			Debug.Log("Speech Recognizer not supported by this Android device ");
@@ -85,9 +88,11 @@ public class SpeechRecognizer : MonoBehaviour {
     private void onError(string data){
 		//toast.ShowToastMessage(String.Format("Status: {0}",data.ToString())); 
 		toast.ShowToastMessage(String.Format("识别失败，请再来一次"));
+		imageHintSpeech.SetActive (false);
 	}
 	
 	private void onResults(string data){
+		imageHintSpeech.SetActive (false);
 		string[] results =  data.Split(',');
 		Debug.Log(" result length " + results.Length);
 		if (results.Length == 0) {
@@ -120,7 +125,10 @@ public class SpeechRecognizer : MonoBehaviour {
 		if (validIndex != -1)
 			toast.ShowToastMessage (texts [validIndex]);
 		else 
+		{
 			toast.ShowToastMessage (results [0]);
+			GameObject.FindGameObjectWithTag ("dog").GetComponent<DogController> ().ShowQuestion ();
+		}
 		//toast.ShowToastMessage (String.Format ("validindex:{0}, result:{1}", validIndex, data.ToString()));
 
 		if(validIndex != -1)
